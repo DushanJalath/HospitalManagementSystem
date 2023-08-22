@@ -6,8 +6,6 @@ import {Link, useParams} from "react-router-dom";
 export default function PatientDetail() {
     const [patients, setPatients] = useState([]);
 
-    const {id} = useParams();
-
     useEffect(() => {
         loadPatients();
 
