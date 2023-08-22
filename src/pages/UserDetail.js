@@ -36,7 +36,7 @@ export default function UserDetail() {
                     </thead>
                     <tbody>
                     {
-                        users.map((user, index) => (
+                        users.map((user) => (
                             <tr>
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>

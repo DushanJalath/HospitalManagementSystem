@@ -37,7 +37,7 @@ export default function PatientDetail() {
                     </thead>
                     <tbody>
                     {
-                        patients.map((patient, index) => (
+                        patients.map((patient) => (
                             <tr>
                                 <td>{patient.id}</td>
                                 <td>{patient.name}</td>
