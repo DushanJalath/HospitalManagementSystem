@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function UpdatePatient() {
     let navigate = useNavigate();
@@ -26,8 +27,26 @@ export default function UpdatePatient() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:8080/api/v1/patient/updatePatient`, patient);
-        navigate("/patient");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Update this!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Save it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Updated!',
+                    'Your file has been Updated.',
+                    'success'
+                )
+                await axios.put(`http://localhost:8080/api/v1/patient/updatePatient`, patient);
+                navigate("/patient");
+            }
+        })
+
     };
 
     const loadPatient = async () => {

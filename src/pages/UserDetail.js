@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 export default function UserDetail() {
@@ -17,8 +18,25 @@ export default function UserDetail() {
     }
 
     const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8080/api/v1/user/deleteUser/${id}`);
-        loadUsers();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                await axios.delete(`http://localhost:8080/api/v1/user/deleteUser/${id}`);
+                loadUsers();
+            }
+        })
     }
 
     return (

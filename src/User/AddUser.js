@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function AddUser() {
     let navigate = useNavigate();
@@ -19,8 +20,26 @@ export default function AddUser() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/api/v1/user/saveUser", user);
-        navigate("/");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Save this!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Save it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Saved!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                await axios.post("http://localhost:8080/api/v1/user/saveUser", user);
+                navigate("/user");
+            }
+        })
+
     };
     return (
         <div className="container mt-5">
@@ -71,7 +90,7 @@ export default function AddUser() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/">
+                        <Link className="btn btn-outline-danger mx-2" to="/user">
                             Cancel
                         </Link>
                     </form>

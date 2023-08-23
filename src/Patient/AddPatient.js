@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function AddPatient() {
     let navigate = useNavigate();
@@ -20,8 +21,26 @@ export default function AddPatient() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/api/v1/patient/savePatient", patient);
-        navigate("/d");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to Save this!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Save it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Saved!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                await axios.post("http://localhost:8080/api/v1/patient/savePatient", patient);
+                navigate("/patient");
+            }
+        })
+
     };
     return (
         <div className="container mt-5">
