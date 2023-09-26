@@ -11,6 +11,9 @@ import UpdateDoctor from "./Doctor/UpdateDoctor";
 import PatientDetail from "./pages/PatientDetail";
 import AddPatient from "./Patient/AddPatient";
 import UpdatePatient from "./Patient/UpdatePatient";
+import DoctorAppoint from "./Doctor/DoctorAppoint";
+import ApoinmentDetails from "./pages/ApoinmentDetails";
+import DocSchedule from "./Doctor/DocSchedule";
 
 function App() {
     return (
@@ -52,8 +55,11 @@ function App() {
                     <Route path={`/update/:id`} element={<UpdateUser/>}/>
                     <Route path={`/updateDoc/:id`} element={<UpdateDoctor/>}/>
                     <Route path={`/updatePat/:id`} element={<UpdatePatient/>}/>
+                    <Route path={`/docSchedule/:id`} element={<DocSchedule/>}/>
                     <Route path={"/doctor"} element={<DoctorDetail/>}/>
+                    <Route path={"/appo"} element={<DoctorAppoint/>}/>
                     <Route path={"/patient"} element={<PatientDetail/>}/>
+                    <Route path={"/apoinment/:doctorId/:patientId"} element={<ApoinmentDetails/>}/>
                 </Routes>
             </Router>
         </div>

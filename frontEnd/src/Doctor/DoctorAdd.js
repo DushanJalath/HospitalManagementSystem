@@ -10,10 +10,11 @@ export default function DoctorAdd() {
         name: "",
         contact: "",
         email: "",
-        specialization: ""
+        specialization: "",
+        channels: ""
     });
 
-    const {name, contact, email, specialization} = doctor;
+    const {name, contact, email, specialization, channels} = doctor;
 
     const onInputChange = (e) => {
         setDoctor({...doctor, [e.target.name]: e.target.value});
@@ -98,6 +99,19 @@ export default function DoctorAdd() {
                                 placeholder="Enter your e-mail"
                                 name="specialization"
                                 value={specialization}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="Channels" className="form-label">
+                                Channels
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="Enter your e-mail"
+                                name="channels"
+                                value={channels}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>

@@ -34,7 +34,16 @@ export default function NavBar(){
                                 <NavLink className="nav-link" activeClassName="active" to="/patient">Patients</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink className="nav-link" activeClassName="active" to="/appo">Appointment</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link" activeClassName="active" to="/addPat">AddPatients</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" activeClassName="active" to="/apoinment">Appo</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" activeClassName="active" to="/docSchedule/13134">DocSchedule</NavLink>
                             </li>
                         </ul>
                     </div>
