@@ -31,10 +31,17 @@ public class UserController {
         return uuidString.substring(0, 5);
     }
 
+    public static String generatePassword() {
+        UUID uuid = UUID.randomUUID();
+        String uuidString = uuid.toString().replace("-", ""); // Remove dashes
+        return uuidString.substring(0, 8);
+    }
+
+
     @PostMapping("/saveUser")
     public UserDTO saveUser(@RequestBody UserDTO userDTO) {
-        String shortId = generateShortId();
-        userDTO.setId(shortId); // Generate UUID
+        userDTO.setId(generateShortId());
+        userDTO.setPassword(generatePassword());
         return userService.saveUser(userDTO);
     }
 

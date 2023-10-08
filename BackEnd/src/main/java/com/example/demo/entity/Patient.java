@@ -13,15 +13,12 @@ import lombok.*;
 @Data
 public class Patient {
 
-    @Id
-    private String id;
-    private String name;
-    private String contact;
-    private String gardienName;
-    private String gardienContact;
-
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setName(String name) {
@@ -40,5 +37,12 @@ public class Patient {
         this.gardienContact = gardienContact;
     }
 
+    @Id
+    private String id;
+    private String password;
+    private String name;
+    private String contact;
+    private String gardienName;
+    private String gardienContact;
 
 }

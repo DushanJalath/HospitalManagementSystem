@@ -36,10 +36,10 @@ public class PatientService {
     }
 
     public PatientDTO getPatient(String id) {
-        Optional<Patient> doctor = patientRepo.findById(id);
+        Optional<Patient> patient = patientRepo.findById(id);
 
-        if (doctor.isPresent()) {
-            return modelMapper.map(doctor.get(), PatientDTO.class);
+        if (patient.isPresent()) {
+            return modelMapper.map(patient.get(), PatientDTO.class);
         } else {
             // Handle the case where the user is not found
             throw new UserNotFoundException(id);
@@ -59,4 +59,25 @@ public class PatientService {
         return true;
     }
 
+    public PatientDTO authenticatePatient(String id, String password) {
+        // Find a doctor by email
+        Optional<Patient> patient = patientRepo.findById(id);
+        PatientDTO patientDTO = null;
+        if (patient.isPresent()) {
+            patientDTO = modelMapper.map(patient.get(), PatientDTO.class);
+            System.out.println(patientDTO.getPassword());
+        }else {
+            throw new UserNotFoundException(id);
+        }
+
+        if (password.equals(patientDTO.getPassword())) {
+            return patientDTO;
+        } else {
+            throw new UserNotFoundException(id);
+        }
+    }
 }
+
+
+
+

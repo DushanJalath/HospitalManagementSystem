@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.PatientDTO;
 import com.example.demo.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,10 +33,16 @@ public class PatientController {
         return uuidString.substring(0, 5);
     }
 
+    public static String generatePassword() {
+        UUID uuid = UUID.randomUUID();
+        String uuidString = uuid.toString().replace("-", ""); // Remove dashes
+        return uuidString.substring(0, 8);
+    }
+
     @PostMapping("/savePatient")
     public PatientDTO savePatient(@RequestBody PatientDTO patientDTO) {
-        String shortId = generateShortId();
-        patientDTO.setId(shortId); // Generate UUID
+        patientDTO.setId(generateShortId());
+        patientDTO.setPassword(generatePassword());
         return patientService.savePatient(patientDTO);
     }
 
@@ -46,6 +54,21 @@ public class PatientController {
     @DeleteMapping("/deletePatient/{id}")
     public boolean deletePatient(@PathVariable String id) {
         return patientService.deletePatient(id);
+    }
+
+    @PostMapping("/plogin")
+    public PatientDTO loginPatient(@RequestBody PatientDTO loginRequest) {
+        String id = loginRequest.getId();
+        String password = loginRequest.getPassword();
+        System.out.println(id);
+
+        PatientDTO authenticatedPatient = patientService.authenticatePatient(id, password);
+
+        if (authenticatedPatient != null) {
+            return authenticatedPatient;
+        } else {
+            return null;
+        }
     }
 
 

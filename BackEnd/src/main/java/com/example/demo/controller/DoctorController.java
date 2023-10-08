@@ -31,10 +31,17 @@ public class DoctorController {
         return uuidString.substring(0, 5);
     }
 
+    public static String generatePassword() {
+        UUID uuid = UUID.randomUUID();
+        String uuidString = uuid.toString().replace("-", ""); // Remove dashes
+        return uuidString.substring(0, 8);
+    }
+
+
     @PostMapping("/saveDoctor")
     public DoctorDTO saveDoctor(@RequestBody DoctorDTO doctorDTO) {
-        String shortId = generateShortId();
-        doctorDTO.setId(shortId); // Generate UUID
+        doctorDTO.setId(generateShortId());
+        doctorDTO.setPassword(generatePassword());
         return doctorService.saveDoctor(doctorDTO);
     }
 

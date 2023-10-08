@@ -15,6 +15,10 @@ public class PatientDTO {
         this.id = id;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -32,6 +36,7 @@ public class PatientDTO {
     }
 
     private String id;
+    private String password;
     private String name;
     private String contact;
     private String gardienName;

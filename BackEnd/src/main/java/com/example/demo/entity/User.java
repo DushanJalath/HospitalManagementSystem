@@ -29,9 +29,15 @@ public class User {
         this.email = email;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
     @Id
     private String id;
     private String name;
     private String contact;
     private String email;
+    private String password;
 }
