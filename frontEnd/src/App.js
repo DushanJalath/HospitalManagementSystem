@@ -14,6 +14,8 @@ import UpdatePatient from "./Patient/UpdatePatient";
 import DoctorAppoint from "./Doctor/DoctorAppoint";
 import ApoinmentDetails from "./pages/ApoinmentDetails";
 import DocSchedule from "./Doctor/DocSchedule";
+import PatientLogin from "./layout/PatientLogin";
+import SetSchedule from "./Doctor/SetSchedule";
 
 function App() {
     return (
@@ -49,6 +51,26 @@ function App() {
                             </div>
                             <div className="col-md-6">
                                 <AddPatient/>
+                            </div>
+                        </div>
+                    }/>
+                    <Route path={"/plog"} element={
+                        <div className="row">
+                            <div className="col-md-6">
+                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
+                            </div>
+                            <div className="col-md-6">
+                                <PatientLogin/>
+                            </div>
+                        </div>
+                    }/>
+                    <Route path={"/dsch"} element={
+                        <div className="row">
+                            <div className="col-md-6">
+                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
+                            </div>
+                            <div className="col-md-6">
+                                <SetSchedule/>
                             </div>
                         </div>
                     }/>

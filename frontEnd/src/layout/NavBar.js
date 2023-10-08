@@ -45,6 +45,12 @@ export default function NavBar(){
                             <li className="nav-item">
                                 <NavLink className="nav-link" activeClassName="active" to="/docSchedule/13134">DocSchedule</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" activeClassName="active" to="/plog">pLog</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" activeClassName="active" to="/dsch">dsch</NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>
