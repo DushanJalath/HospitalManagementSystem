@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import NavBar from "./NavBar";
 
 export default function PatientLogin() {
     let navigate = useNavigate();

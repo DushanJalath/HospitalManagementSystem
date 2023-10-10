@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
+import NavBar from "../layout/NavBar";
 
 export default function AppointmentDetails() {
     let navigate = useNavigate();
@@ -62,6 +63,7 @@ export default function AppointmentDetails() {
 
     return (
         <div className="container">
+            <NavBar isAuthenticated={true} userRole={""} />
             <div className="py-4">
                 <table className="table border shadow">
                     <thead>

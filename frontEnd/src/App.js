@@ -16,13 +16,14 @@ import ApoinmentDetails from "./pages/ApoinmentDetails";
 import DocSchedule from "./Doctor/DocSchedule";
 import PatientLogin from "./layout/PatientLogin";
 import SetSchedule from "./Doctor/SetSchedule";
+import Home from "./layout/Home";
 
 function App() {
     return (
         <div className="App">
             <Router>
-                <NavBar/>
                 <Routes>
+                    <Route path={"/"} element={<Home/>}/>
                     <Route path={"/user"} element={<UserDetail/>}/>
                     <Route path={"/adduser"} element={
                         <div className="row">
@@ -56,6 +57,7 @@ function App() {
                     }/>
                     <Route path={"/plog"} element={
                         <div className="row">
+                            <NavBar isAuthenticated={true} userRole={""} />
                             <div className="col-md-6">
                                 <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
                             </div>

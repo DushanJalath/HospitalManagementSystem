@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+/* WelcomeComponent.css */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Makes the container full-height */
+  text-align: center;
+  font-size: 5rem;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+.welcome-container>h1 {
+  font-size: 5rem;
+}
+
+.button-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-image {
+  width: 1em; /* Set the width to 1em to match the font size */
+  height: 1em; /* Set the height to 1em to match the font size */
+  vertical-align: middle; /* Align the image vertically in the middle */
+  margin-right: 0.5em; /* Add spacing between the image and the text */
+}
+
+.welcome-button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 20rem;
+}
+
+/* CSS */
+.userHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.userIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 8px; /* Add some spacing between the icon and the h1 tag */
+}
