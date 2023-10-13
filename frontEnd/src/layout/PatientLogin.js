@@ -23,10 +23,18 @@ export default function PatientLogin() {
         axios
             .post("http://localhost:8080/api/v1/patient/plogin", patientCredentials)
             .then((response) => {
-                // Handle successful login
-                Swal.fire("Success!", "Logged in successfully!", "success");
-                navigate("/appo");
-                // Redirect or perform other actions
+                if (response.data) {
+                    // Handle successful login
+                    Swal.fire("Success!", "Logged in successfully!", "success");
+
+                    // Here, you can access response.data, which contains your PatientDTO
+                    const authenticatedPatient = response.data;
+                    console.log(authenticatedPatient.id);
+
+                    navigate(`/appo/${authenticatedPatient.id}`);
+                } else {
+                    Swal.fire("Error!", "Invalid email or password", "error");
+                }
             })
             .catch((error) => {
                 if (error.response) {

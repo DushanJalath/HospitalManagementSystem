@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import '../App.css';
 
 export default function NavBar({ isAuthenticated, userRole, patientId }) {
-    // Define navigation links based on user role or authentication status
     const getNavLinks = () => {
         if (isAuthenticated) {
             if (userRole === "home") {
@@ -25,8 +24,8 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                             </NavLink>
                         </li>
                         <div className="userHeader">
-                            <img className="userIcon" width="47" height="47" src="https://img.icons8.com/ios-filled/50/FFFFFF/user.png" alt="user"/>
-                            <h1 className="navHeader" style={{ position: 'absolute', top: 0, right: '2em', margin: '8px', fontSize: '1.7rem', color: 'white' }}>PID: {patientId}</h1>
+                            <img className="userIcon" width="40" height="40" style={{marginTop: '0.5em'}} src="https://img.icons8.com/ios-filled/50/FFFFFF/user.png" alt="user"/>
+                            <h1 className="navHeader" style={{ position: 'absolute', top: 0, right: '2em', marginTop: '0.5em', fontSize: '1.5rem', color: 'white' }}>PID: {patientId}</h1>
                         </div>
 
                     </>

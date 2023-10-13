@@ -50,7 +50,7 @@ export default function AppointmentDetails() {
             if (response.status === 200) {
                 // Handle success, e.g., show a success message or redirect
                 console.log("Appointment successfully saved!");
-                navigate("/appo");
+                navigate(`/appo/${patientId}`);
             } else {
                 // Handle any errors that occur during the POST request
                 console.error("Error saving appointment.");

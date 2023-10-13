@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import NavBar from "../layout/NavBar";
 
 
@@ -8,7 +8,7 @@ export default function DoctorAppoint() {
     const [doctors, setDoctors] = useState([]);
 
 
-    const patientId = "65399";
+    const {patientId} = useParams();
 
     useEffect(() => {
         loadDoctors();
@@ -22,7 +22,7 @@ export default function DoctorAppoint() {
 
     return (
         <div className="row">
-            <NavBar isAuthenticated={true} userRole={"patient"} patientId={"1233"}/>
+            <NavBar isAuthenticated={true} userRole={"patient"} patientId={patientId}/>
             <div className="container">
                 <div className="py-4">
                     <table className="table border shadow">
