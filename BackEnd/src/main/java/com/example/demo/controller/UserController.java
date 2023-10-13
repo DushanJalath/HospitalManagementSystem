@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.UserDTO;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +54,21 @@ public class UserController {
     @DeleteMapping("/deleteUser/{id}")
     public boolean deleteUser(@PathVariable String id) {
         return userService.deleteUser(id);
+    }
+
+    @PostMapping("/ulogin")
+    public UserDTO loginUser(@RequestBody UserDTO loginRequest) {
+        String id = loginRequest.getId();
+        String password = loginRequest.getPassword();
+        System.out.println(id);
+
+        UserDTO authenticatedUser = userService.authenticateUser(id, password);
+
+        if (authenticatedUser != null) {
+            return authenticatedUser;
+        } else {
+            return null;
+        }
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.DoctorDTO;
+import com.example.demo.dto.DoctorDTO;
 import com.example.demo.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +54,21 @@ public class DoctorController {
     @DeleteMapping("/deleteDoctor/{id}")
     public boolean deleteDoctor(@PathVariable String id) {
         return doctorService.deleteDoctor(id);
+    }
+
+    @PostMapping("/dlogin")
+    public DoctorDTO loginDoctor(@RequestBody DoctorDTO loginRequest) {
+        String id = loginRequest.getId();
+        String password = loginRequest.getPassword();
+        System.out.println(id);
+
+        DoctorDTO authenticatedDoctor = doctorService.authenticateDoctor(id, password);
+
+        if (authenticatedDoctor != null) {
+            return authenticatedDoctor;
+        } else {
+            return null;
+        }
     }
 
 

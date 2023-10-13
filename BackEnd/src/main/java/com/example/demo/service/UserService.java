@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.UserDTO;
+import com.example.demo.dto.UserDTO;
+import com.example.demo.entity.User;
 import com.example.demo.entity.User;
 import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.repo.UserRepo;
@@ -54,6 +56,24 @@ public class UserService {
         }
         userRepo.deleteById(id);
         return true;
+    }
+
+    public UserDTO authenticateUser(String id, String password) {
+        // Find a doctor by email
+        Optional<User> user = userRepo.findById(id);
+        UserDTO userDTO = null;
+        if (user.isPresent()) {
+            userDTO = modelMapper.map(user.get(), UserDTO.class);
+            System.out.println(userDTO.getPassword());
+        }else {
+            throw new UserNotFoundException(id);
+        }
+
+        if (password.equals(userDTO.getPassword())) {
+            return userDTO;
+        } else {
+            throw new UserNotFoundException(id);
+        }
     }
 
 }
