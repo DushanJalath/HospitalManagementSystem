@@ -11,6 +11,14 @@ const Home = () => {
         navigate('/plog'); // Navigate to the /patient route
     };
 
+    const navigateToDoctor = () => {
+        navigate('/dlog'); // Navigate to the /patient route
+    };
+
+    const navigateToUser = () => {
+        navigate('/ulog'); // Navigate to the /patient route
+    };
+
     return (
         <div className="row">
             <NavBar isAuthenticated={true} userRole={"home"} patientId={""} />
@@ -32,10 +40,10 @@ const Home = () => {
                     />
                     <h1>MEDCare</h1>
                     <div className="button-container">
-                        <button className="welcome-button btn btn-outline-primary" onClick={navigateToPatientDetail}>
+                        <button className="welcome-button btn btn-outline-primary" onClick={navigateToUser}>
                             Admin Account
                         </button>
-                        <button className="welcome-button btn btn-outline-primary">
+                        <button className="welcome-button btn btn-outline-primary" onClick={navigateToDoctor}>
                             Doctor Account
                         </button>
                         <button className="welcome-button btn btn-outline-primary" onClick={navigateToPatientDetail}>
