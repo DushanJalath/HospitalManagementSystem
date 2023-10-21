@@ -83,7 +83,7 @@ export default function UserLogin() {
                         <button type="submit" className="btn btn-outline-primary">
                             Login
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/d">
+                        <Link className="btn btn-outline-danger mx-2" to="/">
                             Cancel
                         </Link>
                     </form>

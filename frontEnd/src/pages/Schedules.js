@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import NavBar from "../layout/NavBar";
 
 
-export default function DocSchedule() {
+export default function Schedules() {
     const [schedules, setSchedule] = useState([]);
 
     /*const { doctorId } = useParams();*/
@@ -27,7 +27,7 @@ export default function DocSchedule() {
 
     return (
         <div className="row">
-            <NavBar isAuthenticated={true} userRole={"doctor"} patientId={id}/>
+            <NavBar isAuthenticated={true} userRole={"admin"}/>
             <div className="container">
                 <div className="py-4">
                     <table className="table border shadow">

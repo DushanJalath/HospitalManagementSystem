@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import NavBar from "./layout/NavBar";
 import UserDetail from "./pages/UserDetail";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
 import AddUser from "./User/AddUser";
 import UpdateUser from "./User/UpdateUser";
 import DoctorDetail from "./pages/DoctorDetail";
@@ -19,6 +19,8 @@ import SetSchedule from "./Doctor/SetSchedule";
 import Home from "./layout/Home";
 import DoctorLogin from "./layout/DoctorLogin";
 import UserLogin from "./layout/UserLogin";
+import Register from "./layout/Register";
+import Schedules from "./pages/Schedules";
 
 function App() {
     return (
@@ -26,6 +28,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
+                    <Route path={"/reg"} element={<Register/>}/>
                     <Route path={"/user"} element={<UserDetail/>}/>
                     <Route path={"/adduser"} element={
                         <div className="row">
@@ -39,6 +42,7 @@ function App() {
                     }/>
                     <Route path={"/addDoc"} element={
                         <div className="row">
+                            <NavBar isAuthenticated={true} userRole={"admin"} />
                             <div className="col-md-6">
                                 <img src="https://img.freepik.com/free-vector/man-doctor-woman-nurse-stand-with-patient-card-medical-staff-uniform-study-discuss-examination-result-make-note-therapist-giving-treatment-recommendation-prescription-putting-signature_575670-1316.jpg?w=1060&t=st=1692642115~exp=1692642715~hmac=b2328ff12532ae072862aec48a8a3fbece0f0cddb1743c823f4044056244f702" alt="" width="600" height="600" className=" mt-lg-5"/>
                             </div>
@@ -49,6 +53,7 @@ function App() {
                     }/>
                     <Route path={"/addPat"} element={
                         <div className="row">
+                            <NavBar isAuthenticated={true} userRole={"admin"} />
                             <div className="col-md-6">
                                 <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
                             </div>
@@ -90,21 +95,13 @@ function App() {
                             </div>
                         </div>
                     }/>
-                    <Route path={"/dsch"} element={
-                        <div className="row">
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
-                                <SetSchedule/>
-                            </div>
-                        </div>
-                    }/>
+                    <Route path={`/addScedule/:doctorId`} element={<SetSchedule/>}/>
                     <Route path={`/update/:id`} element={<UpdateUser/>}/>
+                    <Route path={`/schedules/:id`} element={<Schedules/>}/>
                     <Route path={`/updateDoc/:id`} element={<UpdateDoctor/>}/>
                     <Route path={`/updatePat/:id`} element={<UpdatePatient/>}/>
                     <Route path={`/docSchedule/:id`} element={<DocSchedule/>}/>
-                    <Route path={"/doctor"} element={<DoctorDetail/>}/>
+                    <Route path={"/doctorDetails"} element={<DoctorDetail/>}/>
                     <Route path={"/appo/:patientId"} element={<DoctorAppoint/>}/>
                     <Route path={"/patient"} element={<PatientDetail/>}/>
                     <Route path={"/apoinment/:doctorId/:patientId"} element={<ApoinmentDetails/>}/>

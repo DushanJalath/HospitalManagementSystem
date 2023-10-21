@@ -8,19 +8,29 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
             if (userRole === "home") {
                 return (
                     <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeClassName="active" to="/">
+                                Log In
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeClassName="active" to="/reg">
+                                Register
+                            </NavLink>
+                        </li>
                     </>
                 );
             } else if (userRole === "patient") {
                 return (
                     <>
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeClassName="active" to="/patient">
-                                Patients
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/appo">
+                                Appointment
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/appo">
-                                Appointment
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
+                                LogOut
                             </NavLink>
                         </li>
                         <div className="userHeader">
@@ -28,6 +38,60 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                             <h1 className="navHeader" style={{ position: 'absolute', top: 0, right: '2em', marginTop: '0.5em', fontSize: '1.5rem', color: 'white' }}>PID: {patientId}</h1>
                         </div>
 
+                    </>
+                );
+            }else if (userRole === "doctor") {
+                return (
+                    <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeClassName="active" to={`/docSchedule/${patientId}`}>
+                                MySchedule
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/addScedule/${patientId}`}>
+                                AddSchedule
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
+                                LogOut
+                            </NavLink>
+                        </li>
+                        <div className="userHeader">
+                            <img className="userIcon" width="40" height="40" style={{marginTop: '0.5em'}} src="https://img.icons8.com/ios-filled/50/FFFFFF/user.png" alt="user"/>
+                            <h1 className="navHeader" style={{ position: 'absolute', top: 0, right: '2em', marginTop: '0.5em', fontSize: '1.5rem', color: 'white' }}>DID: {patientId}</h1>
+                        </div>
+                    </>
+                );
+            } else if (userRole === "admin") {
+                return (
+                    <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/patient">
+                                PatientDetails
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/doctorDetails">
+                                DoctorDetails
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addPat">
+                                AddPatient
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addDoc">
+                                AddDoctor
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
+                                LogOut
+                            </NavLink>
+                        </li>
                     </>
                 );
             }else{

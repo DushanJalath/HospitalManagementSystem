@@ -22,9 +22,10 @@ export default function DoctorAdd() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
         Swal.fire({
             title: 'Are you sure?',
-            text: "You want to Save this!!",
+            text: 'You want to save this!',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -32,16 +33,26 @@ export default function DoctorAdd() {
             confirmButtonText: 'Yes, Save it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Saved!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-                await axios.post("http://localhost:8080/api/v1/doctor/saveDoctor", doctor);
-                navigate("/doctor");
-            }
-        })
+                try {
+                    const response = await axios.post("http://localhost:8080/api/v1/doctor/saveDoctor", doctor);
 
+                    // Check if the response contains a PatientDTO
+                    if (response.data) {
+                        Swal.fire({
+                            title: 'Saved!',
+                            text: 'Patient saved successfully!',
+                            icon: 'success',
+                            html: `Patient's Password: ${response.data.password}`
+                        });
+
+                    } else {
+                        Swal.fire('Error!', 'Failed to save patient.', 'error');
+                    }
+                } catch (error) {
+                    Swal.fire('Error!', 'An error occurred while saving the patient.', 'error');
+                }
+            }
+        });
     };
     return (
         <div className="container mt-5">

@@ -26,10 +26,10 @@ export default function DoctorLogin() {
                     // Handle successful login
                     Swal.fire("Success!", "Logged in successfully!", "success");
 
-                    const authenticatedPatient = response.data;
-                    console.log(authenticatedPatient.id);
+                    const authenticatedDoctor = response.data;
+                    console.log(authenticatedDoctor.id);
 
-                    navigate(`/doctor`);
+                    navigate(`/docSchedule/${authenticatedDoctor.id}`);
                 } else {
                     Swal.fire("Error!", "Invalid email or password", "error");
                 }
@@ -83,7 +83,7 @@ export default function DoctorLogin() {
                         <button type="submit" className="btn btn-outline-primary">
                             Login
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/d">
+                        <Link className="btn btn-outline-danger mx-2" to="/">
                             Cancel
                         </Link>
                     </form>
