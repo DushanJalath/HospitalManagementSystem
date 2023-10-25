@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function AddPatient() {
+export default function AdminPatientReg() {
     let navigate = useNavigate();
 
     const [patient, setPatient] = useState({
@@ -37,7 +37,7 @@ export default function AddPatient() {
 
                     // Check if the response contains a PatientDTO
                     if (response.data) {
-                        Swal.fire({
+                        await Swal.fire({
                             title: 'Saved!',
                             text: 'Patient saved successfully!',
                             icon: 'success',
@@ -46,10 +46,10 @@ export default function AddPatient() {
                         navigate("/")
 
                     } else {
-                        Swal.fire('Error!', 'Failed to save patient.', 'error');
+                        await Swal.fire('Error!', 'Failed to save patient.', 'error');
                     }
                 } catch (error) {
-                    Swal.fire('Error!', 'An error occurred while saving the patient.', 'error');
+                    await Swal.fire('Error!', 'An error occurred while saving the patient.', 'error');
                 }
             }
         });
@@ -117,7 +117,7 @@ export default function AddPatient() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/reg">
+                        <Link className="btn btn-outline-danger mx-2" to="/patient">
                             Cancel
                         </Link>
                     </form>

@@ -4,11 +4,8 @@ import {Link, useParams} from "react-router-dom";
 import NavBar from "../layout/NavBar";
 
 
-export default function DoctorAppoint() {
-    const [doctors, setDoctors] = useState([]);
-
-
-    const {patientId} = useParams();
+export default function LoadChannels() {
+    const [channels, setChannels] = useState([]);
 
     useEffect(() => {
         loadDoctors();
@@ -16,13 +13,13 @@ export default function DoctorAppoint() {
     }, []);
 
     const loadDoctors = async () => {
-        const result = await axios.get("http://localhost:8080/api/v1/doctor/getDoctors");
-        setDoctors(result.data);
+        const result = await axios.get("http://localhost:8080/api/v1/channel/getChannels");
+        setChannels(result.data);
     }
 
     return (
         <div className="row">
-            <NavBar isAuthenticated={true} userRole={"patient"} patientId={patientId}/>
+            <NavBar isAuthenticated={true} userRole={"admin"}/>
             <div className="background-image2"></div>
             <div className="container">
                 <div className="py-4">
@@ -30,23 +27,22 @@ export default function DoctorAppoint() {
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Specialization</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Patient ID</th>
+                            <th scope="col">Doctor ID</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         {
-                            doctors.map((doctor) => (
+                            channels.map((channel) => (
                                 <tr>
-                                    <td>{doctor.id}</td>
-                                    <td>{doctor.name}</td>
-                                    <td>{doctor.email}</td>
-                                    <td>{doctor.specialization}</td>
+                                    <td>{channel.channelId}</td>
+                                    <td>{channel.date}</td>
+                                    <td>{channel.patient.id}</td>
+                                    <td>{channel.doctor.id}</td>
                                     <td>
-                                        <Link className="btn btn-sm btn-outline-primary mx-1"
-                                              to={`/apoinment/${doctor.id}/${patientId}`}>Book</Link>
+                                        <Link className="btn btn-sm btn-outline-primary mx-1" to={`/report/${channel.channelId}`}>Create Bill</Link>
                                     </td>
                                 </tr>
 

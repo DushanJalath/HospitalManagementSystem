@@ -44,6 +44,7 @@ export default function DoctorAdd() {
                             icon: 'success',
                             html: `Patient's Password: ${response.data.password}`
                         });
+                        navigate("/");
 
                     } else {
                         Swal.fire('Error!', 'Failed to save patient.', 'error');
@@ -57,7 +58,7 @@ export default function DoctorAdd() {
     return (
         <div className="container mt-5">
             <div className="row">
-                <div className="col-md-8 offset-md-1 border rounded p-4 mt-lg-5 shadow">
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow" style={{backgroundColor: "white"}}>
                     <h2 className="text-center m-4">Register Doctor</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
@@ -68,7 +69,7 @@ export default function DoctorAdd() {
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your doctorname"
+                                placeholder="Enter your name"
                                 name="name"
                                 value={name}
                                 onChange={(e) => onInputChange(e)}
@@ -107,7 +108,7 @@ export default function DoctorAdd() {
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your e-mail"
+                                placeholder="Enter your specialization"
                                 name="specialization"
                                 value={specialization}
                                 onChange={(e) => onInputChange(e)}
@@ -120,7 +121,7 @@ export default function DoctorAdd() {
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your e-mail"
+                                placeholder="Enter your channel count"
                                 name="channels"
                                 value={channels}
                                 onChange={(e) => onInputChange(e)}
@@ -129,7 +130,7 @@ export default function DoctorAdd() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/d">
+                        <Link className="btn btn-outline-danger mx-2" to="/reg">
                             Cancel
                         </Link>
                     </form>

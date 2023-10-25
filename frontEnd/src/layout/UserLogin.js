@@ -50,13 +50,13 @@ export default function UserLogin() {
     return (
         <div className="container mt-5">
             <div className="row">
-                <div className="col-md-8 offset-md-2 border rounded p-4 mt-lg-5 shadow">
-                    <h2 className="text-center m-4">User Login</h2>
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow" style={{backgroundColor: "white"}}>
+                    <h2 className="text-center m-4">Admin Login</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
                             <label htmlFor="ID" className="form-label">
-                                ID
+                                Admin ID
                             </label>
                             <input
                                 type="text"

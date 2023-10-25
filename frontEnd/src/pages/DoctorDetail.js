@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import NavBar from "../layout/NavBar";
+import Swal from "sweetalert2";
 
 
 export default function DoctorDetail() {
@@ -18,13 +19,27 @@ export default function DoctorDetail() {
     }
 
     const deleteDoctor = async (id) => {
-        await axios.delete(`http://localhost:8080/api/v1/doctor/deleteDoctor/${id}`);
-        loadDoctors();
+        // Show a SweetAlert confirmation dialog
+        Swal.fire({
+            title: "Confirm Delete",
+            text: "Are you sure you want to delete this doctor?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete!",
+            cancelButtonText: "No, cancel",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                // User confirmed, proceed to delete the doctor
+                await axios.delete(`http://localhost:8080/api/v1/doctor/deleteDoctor/${id}`);
+                await loadDoctors();
+                await Swal.fire("Deleted!", "The doctor has been deleted.", "success");
+            }
+        });
     }
-
     return (
         <div className="row">
             <NavBar isAuthenticated={true} userRole={"admin"}/>
+            <div className="background-image4"></div>
             <div className="container">
                 <div className="py-4">
                     <table className="table border shadow">

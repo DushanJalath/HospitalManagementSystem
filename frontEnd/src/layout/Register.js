@@ -1,8 +1,7 @@
 import React from 'react';
 import '../App.css';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import NavBar from "./NavBar";
-
 
 
 const Register = () => {
@@ -18,20 +17,12 @@ const Register = () => {
 
     return (
         <div className="row">
-            <NavBar isAuthenticated={true} userRole={"home"} patientId={""} />
-            <div className="col-md-6">
-                <img
-                    src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?w=1060&t=st=1692635028~exp=1692635628~hmac=e8a0599cb186ffe464c6911d95ef3da0f4da9bc434103b7150664a8ab0cfb39e"
-                    alt=""
-                    width="700"
-                    height="700"
-                    className="mt-lg-5"
-                />
-            </div>
-            <div className="col-md-6">
-                <div className="welcome-container">
+            <NavBar isAuthenticated={true} userRole={"home"} patientId={""}/>
+            <div className="background-image"></div>
+            <div className="welcome-container">
+                <div className="col-md-4 offset-md-0 border rounded p-5 mt-0 shadow" style={{backgroundColor: "white"}}>
                     <img
-                        src="https://static.vecteezy.com/system/resources/previews/009/362/747/original/simple-medical-icon-symbol-sign-design-free-png.png"
+                        src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/create_with_plus_mail_layer-512.png"
                         alt="Your Image"
                         className="main-image"
                     />
@@ -49,7 +40,6 @@ const Register = () => {
         </div>
     );
 };
-
 
 
 export default Register;

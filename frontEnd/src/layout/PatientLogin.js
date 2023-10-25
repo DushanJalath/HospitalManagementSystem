@@ -54,13 +54,13 @@ export default function PatientLogin() {
     return (
         <div className="container mt-5">
             <div className="row">
-                <div className="col-md-8 offset-md-2 border rounded p-4 mt-lg-5 shadow">
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow" style={{backgroundColor: "white"}}>
                     <h2 className="text-center m-4">Patient Login</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
                             <label htmlFor="ID" className="form-label">
-                                ID
+                                Patient ID
                             </label>
                             <input
                                 type="text"

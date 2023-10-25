@@ -3,20 +3,21 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function AddPatient() {
+export default function AdminDoctorReg() {
     let navigate = useNavigate();
 
-    const [patient, setPatient] = useState({
+    const [doctor, setDoctor] = useState({
         name: "",
         contact: "",
-        gardienName: "",
-        gardienContact: "",
+        email: "",
+        specialization: "",
+        channels: ""
     });
 
-    const {name, contact, gardienName, gardienContact} = patient;
+    const {name, contact, email, specialization, channels} = doctor;
 
     const onInputChange = (e) => {
-        setPatient({...patient, [e.target.name]: e.target.value});
+        setDoctor({...doctor, [e.target.name]: e.target.value});
     };
 
     const onSubmit = async (e) => {
@@ -33,7 +34,7 @@ export default function AddPatient() {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await axios.post("http://localhost:8080/api/v1/patient/savePatient", patient);
+                    const response = await axios.post("http://localhost:8080/api/v1/doctor/saveDoctor", doctor);
 
                     // Check if the response contains a PatientDTO
                     if (response.data) {
@@ -43,7 +44,6 @@ export default function AddPatient() {
                             icon: 'success',
                             html: `Patient's Password: ${response.data.password}`
                         });
-                        navigate("/")
 
                     } else {
                         Swal.fire('Error!', 'Failed to save patient.', 'error');
@@ -57,14 +57,13 @@ export default function AddPatient() {
     return (
         <div className="container mt-5">
             <div className="row">
-                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow"
-                     style={{backgroundColor: "white"}}>
-                    <h2 className="text-center m-4">Register Patient</h2>
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow" style={{backgroundColor: "white"}}>
+                    <h2 className="text-center m-4">Register Doctor</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
-                            <label htmlFor="Patientname" className="form-label">
-                                Patient Name
+                            <label htmlFor="Doctorname" className="form-label">
+                                Doctor Name
                             </label>
                             <input
                                 type={"text"}
@@ -89,35 +88,48 @@ export default function AddPatient() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Guardian Name" className="form-label">
-                                Guardian Name
+                            <label htmlFor="Email" className="form-label">
+                                Email
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your guardian's name"
-                                name="gardienName"
-                                value={gardienName}
+                                placeholder="Enter your e-mail"
+                                name="email"
+                                value={email}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Guardian Contact" className="form-label">
-                                Guardian Contact
+                            <label htmlFor="Specialization" className="form-label">
+                                Specialization
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your guardian's contact"
-                                name="gardienContact"
-                                value={gardienContact}
+                                placeholder="Enter your specialization"
+                                name="specialization"
+                                value={specialization}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="Channels" className="form-label">
+                                Channels
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="Enter your channel count"
+                                name="channels"
+                                value={channels}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/reg">
+                        <Link className="btn btn-outline-danger mx-2" to="/doctorDetails">
                             Cancel
                         </Link>
                     </form>

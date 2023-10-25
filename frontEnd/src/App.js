@@ -21,6 +21,12 @@ import DoctorLogin from "./layout/DoctorLogin";
 import UserLogin from "./layout/UserLogin";
 import Register from "./layout/Register";
 import Schedules from "./pages/Schedules";
+import FrontPage from "./layout/FrontPage";
+import React from "react";
+import AdminDoctorReg from "./layout/AdminDoctorReg";
+import AdminPatientReg from "./layout/AdminPatientReg";
+import PDFGenerator from "./layout/PDFGenerator";
+import LoadChannels from "./pages/LoadChannels";
 
 function App() {
     return (
@@ -28,12 +34,15 @@ function App() {
             <Router>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
+                    <Route path={"/front"} element={<FrontPage/>}/>
                     <Route path={"/reg"} element={<Register/>}/>
                     <Route path={"/user"} element={<UserDetail/>}/>
                     <Route path={"/adduser"} element={
                         <div className="row">
                             <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?w=1060&t=st=1692635028~exp=1692635628~hmac=e8a0599cb186ffe464c6911d95ef3da0f4da9bc434103b7150664a8ab0cfb39e" alt="" width="600" height="600" className=" mt-lg-5"/>
+                                <img
+                                    src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?w=1060&t=st=1692635028~exp=1692635628~hmac=e8a0599cb186ffe464c6911d95ef3da0f4da9bc434103b7150664a8ab0cfb39e"
+                                    alt="" width="600" height="600" className=" mt-lg-5"/>
                             </div>
                             <div className="col-md-6">
                                 <AddUser/>
@@ -42,57 +51,51 @@ function App() {
                     }/>
                     <Route path={"/addDoc"} element={
                         <div className="row">
-                            <NavBar isAuthenticated={true} userRole={"admin"} />
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/man-doctor-woman-nurse-stand-with-patient-card-medical-staff-uniform-study-discuss-examination-result-make-note-therapist-giving-treatment-recommendation-prescription-putting-signature_575670-1316.jpg?w=1060&t=st=1692642115~exp=1692642715~hmac=b2328ff12532ae072862aec48a8a3fbece0f0cddb1743c823f4044056244f702" alt="" width="600" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
-                                <DoctorAdd/>
-                            </div>
+                            <NavBar isAuthenticated={true} userRole={""}/>
+                            <div className="background-image"></div>
+                            <DoctorAdd/>
+                        </div>
+                    }/>
+                    <Route path={"/addDocAdmin"} element={
+                        <div className="row">
+                            <NavBar isAuthenticated={true} userRole={"admin"}/>
+                            <div className="background-image"></div>
+                            <AdminDoctorReg/>
                         </div>
                     }/>
                     <Route path={"/addPat"} element={
                         <div className="row">
-                            <NavBar isAuthenticated={true} userRole={"admin"} />
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
-                                <AddPatient/>
-                            </div>
+                            <NavBar isAuthenticated={true} userRole={""}/>
+                            <div className="background-image"></div>
+                            <AddPatient/>
+                        </div>
+                    }/>
+                    <Route path={"/addPatAdmin"} element={
+                        <div className="row">
+                            <NavBar isAuthenticated={true} userRole={"admin"}/>
+                            <div className="background-image"></div>
+                            <AdminPatientReg/>
                         </div>
                     }/>
                     <Route path={"/plog"} element={
-                        <div className="row">
-                            <NavBar isAuthenticated={true} userRole={""} />
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
-                                <PatientLogin/>
-                            </div>
+                        <div className="row justify-content-center">
+                            <NavBar isAuthenticated={true} userRole={""}/>
+                            <div className="background-image"></div>
+                            <PatientLogin/>
                         </div>
                     }/>
                     <Route path={"/dlog"} element={
                         <div className="row">
-                            <NavBar isAuthenticated={true} userRole={""} />
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
+                            <NavBar isAuthenticated={true} userRole={""}/>
+                            <div className="background-image"></div>
                                 <DoctorLogin/>
-                            </div>
                         </div>
                     }/>
                     <Route path={"/ulog"} element={
                         <div className="row">
-                            <NavBar isAuthenticated={true} userRole={""} />
-                            <div className="col-md-6">
-                                <img src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb" alt="" width="650" height="600" className=" mt-lg-5"/>
-                            </div>
-                            <div className="col-md-6">
+                            <NavBar isAuthenticated={true} userRole={""}/>
+                            <div className="background-image"></div>
                                 <UserLogin/>
-                            </div>
                         </div>
                     }/>
                     <Route path={`/addScedule/:doctorId`} element={<SetSchedule/>}/>
@@ -105,6 +108,8 @@ function App() {
                     <Route path={"/appo/:patientId"} element={<DoctorAppoint/>}/>
                     <Route path={"/patient"} element={<PatientDetail/>}/>
                     <Route path={"/apoinment/:doctorId/:patientId"} element={<ApoinmentDetails/>}/>
+                    <Route path={"/report/:channelId"} element={<PDFGenerator/>}/>
+                    <Route path={"/channels"} element={<LoadChannels/>}/>
                 </Routes>
             </Router>
         </div>

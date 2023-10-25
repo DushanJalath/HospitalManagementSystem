@@ -94,117 +94,110 @@ const DoctorScheduleForm = () => {
     return (
         <div className="row">
             <NavBar isAuthenticated={true} userRole={"doctor"} patientId={doctorId}/>
-            <div className="col-md-6">
-                <img
-                    src="https://img.freepik.com/free-vector/doctor-patient-medical-concept-hospital-patient-lying-hospital-bed_1150-50285.jpg?w=1800&t=st=1692645843~exp=1692646443~hmac=509b64de3d05c2b8e9291b2bd99d8fa66b67b9fce45ff204995c69ad845b1ebb"
-                    alt="" width="650" height="600" className=" mt-lg-5"/>
-            </div>
-            <div className="col-md-6">
-                <div className="container mt-5">
-                    <div className="row">
-                        <div className="col-md-8 offset-md-2 border rounded p-4 mt-lg-5 shadow">
-                            <h2>Doctor Schedule</h2>
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                    <label htmlFor="doctorid" className="form-label">
-                                        Doctor ID
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="doctorid"
-                                        name="doctorid"
-                                        value={doctor?.id || ''}
-                                        readOnly
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="startTime" className="form-label">
-                                        Start Time
-                                    </label>
-                                    <select
-                                        className="form-select"
-                                        id="startTime"
-                                        name="startTime"
-                                        value={startTime}
-                                        onChange={handleChange}
-                                        required
-                                    >
-                                        <option value="">Select a Start Time</option>
-                                        <option value="4.00 PM">10.00 PM</option>
-                                        <option value="11.00 AM">11.00 AM</option>
-                                        <option value="12.00 AM">12.00 AM</option>
-                                        <option value="1.00 PM">1.00 PM</option>
-                                        <option value="2.00 PM">2.00 PM</option>
-                                        <option value="3.00 PM">3.00 PM</option>
-                                        <option value="4.00 PM">4.00 PM</option>
-                                        <option value="5.00 PM">5.00 PM</option>
-                                        <option value="6.00 PM">6.00 PM</option>
-                                        <option value="7.00 PM">7.00 PM</option>
-                                        <option value="8.00 PM">8.00 PM</option>
-                                        <option value="9.00 PM">9.00 PM</option>
-                                        <option value="10.00 PM">10.00 PM</option>
-                                        <option value="11.00 PM">11.00 PM</option>
-                                    </select>
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="endTime" className="form-label">
-                                        End Time
-                                    </label>
-                                    <select
-                                        className="form-select"
-                                        id="endTime"
-                                        name="endTime"
-                                        value={endTime}
-                                        onChange={handleChange}
-                                        required
-                                    >
-                                        <option value="">Select a End Time</option>
-                                        <option value="4.00 PM">10.00 PM</option>
-                                        <option value="11.00 AM">11.00 AM</option>
-                                        <option value="12.00 AM">12.00 AM</option>
-                                        <option value="1.00 PM">1.00 PM</option>
-                                        <option value="2.00 PM">2.00 PM</option>
-                                        <option value="3.00 PM">3.00 PM</option>
-                                        <option value="4.00 PM">4.00 PM</option>
-                                        <option value="5.00 PM">5.00 PM</option>
-                                        <option value="6.00 PM">6.00 PM</option>
-                                        <option value="7.00 PM">7.00 PM</option>
-                                        <option value="8.00 PM">8.00 PM</option>
-                                        <option value="9.00 PM">9.00 PM</option>
-                                        <option value="10.00 PM">10.00 PM</option>
-                                        <option value="11.00 PM">11.00 PM</option>
-                                    </select>
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="dayOfWeek" className="form-label">
-                                        Day of the Week
-                                    </label>
-                                    <select
-                                        className="form-select"
-                                        id="dayOfWeek"
-                                        name="dayOfWeek"
-                                        value={dayOfWeek}
-                                        onChange={handleChange}
-                                        required
-                                    >
-                                        <option value="">Select a day</option>
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                        <option value="Saturday">Saturday</option>
-                                        <option value="Sunday">Sunday</option>
-                                    </select>
-                                </div>
-                                <button type="submit" className="btn btn-primary">
-                                    Save Schedule
-                                </button>
-                            </form>
+            <div className="background-image3"></div>
+            <div className="row mt-lg-5">
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-lg-5 shadow"
+                     style={{backgroundColor: "white"}}>
+                    <h2>Doctor Schedule</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label htmlFor="doctorid" className="form-label">
+                                Doctor ID
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="doctorid"
+                                name="doctorid"
+                                value={doctor?.id || ''}
+                                readOnly
+                                required
+                            />
                         </div>
-                    </div>
+                        <div className="mb-3">
+                            <label htmlFor="startTime" className="form-label">
+                                Start Time
+                            </label>
+                            <select
+                                className="form-select"
+                                id="startTime"
+                                name="startTime"
+                                value={startTime}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select a Start Time</option>
+                                <option value="4.00 PM">10.00 PM</option>
+                                <option value="11.00 AM">11.00 AM</option>
+                                <option value="12.00 AM">12.00 AM</option>
+                                <option value="1.00 PM">1.00 PM</option>
+                                <option value="2.00 PM">2.00 PM</option>
+                                <option value="3.00 PM">3.00 PM</option>
+                                <option value="4.00 PM">4.00 PM</option>
+                                <option value="5.00 PM">5.00 PM</option>
+                                <option value="6.00 PM">6.00 PM</option>
+                                <option value="7.00 PM">7.00 PM</option>
+                                <option value="8.00 PM">8.00 PM</option>
+                                <option value="9.00 PM">9.00 PM</option>
+                                <option value="10.00 PM">10.00 PM</option>
+                                <option value="11.00 PM">11.00 PM</option>
+                            </select>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="endTime" className="form-label">
+                                End Time
+                            </label>
+                            <select
+                                className="form-select"
+                                id="endTime"
+                                name="endTime"
+                                value={endTime}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select a End Time</option>
+                                <option value="4.00 PM">10.00 PM</option>
+                                <option value="11.00 AM">11.00 AM</option>
+                                <option value="12.00 AM">12.00 AM</option>
+                                <option value="1.00 PM">1.00 PM</option>
+                                <option value="2.00 PM">2.00 PM</option>
+                                <option value="3.00 PM">3.00 PM</option>
+                                <option value="4.00 PM">4.00 PM</option>
+                                <option value="5.00 PM">5.00 PM</option>
+                                <option value="6.00 PM">6.00 PM</option>
+                                <option value="7.00 PM">7.00 PM</option>
+                                <option value="8.00 PM">8.00 PM</option>
+                                <option value="9.00 PM">9.00 PM</option>
+                                <option value="10.00 PM">10.00 PM</option>
+                                <option value="11.00 PM">11.00 PM</option>
+                            </select>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="dayOfWeek" className="form-label">
+                                Day of the Week
+                            </label>
+                            <select
+                                className="form-select"
+                                id="dayOfWeek"
+                                name="dayOfWeek"
+                                value={dayOfWeek}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select a day</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <button type="submit" className="btn btn-primary">
+                            Save Schedule
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

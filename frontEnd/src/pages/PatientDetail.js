@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import NavBar from "../layout/NavBar";
+import Swal from "sweetalert2";
 
 
 export default function PatientDetail() {
@@ -18,13 +19,27 @@ export default function PatientDetail() {
     }
 
     const deletePatient = async (id) => {
-        await axios.delete(`http://localhost:8080/api/v1/patient/deletePatient/${id}`);
-        loadPatients();
+        Swal.fire({
+            title: "Confirm Delete",
+            text: "Are you sure you want to delete this patient?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete!",
+            cancelButtonText: "No, cancel",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                // User confirmed, proceed to delete the doctor
+                await axios.delete(`http://localhost:8080/api/v1/patient/deletePatient/${id}`);
+                await loadPatients();
+                await Swal.fire("Deleted!", "The Patient has been deleted.", "success");
+            }
+        });
     }
 
     return (
         <div className="row">
             <NavBar isAuthenticated={true} userRole={"admin"}/>
+            <div className="background-image4"></div>
             <div className="container">
                 <div className="py-4">
                     <table className="table border shadow">
@@ -33,8 +48,8 @@ export default function PatientDetail() {
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Contact</th>
-                            <th scope="col">GardienName</th>
-                            <th scope="col">GardienContact</th>
+                            <th scope="col">GuardianName</th>
+                            <th scope="col">GuardianContact</th>
                             <th>Actions</th>
                         </tr>
                         </thead>

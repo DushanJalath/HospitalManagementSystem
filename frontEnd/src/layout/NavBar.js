@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import '../App.css';
 
 export default function NavBar({ isAuthenticated, userRole, patientId }) {
@@ -78,13 +78,18 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addPat">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addPatAdmin">
                                 AddPatient
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addDoc">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/addDocAdmin">
                                 AddDoctor
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/channels">
+                                Channels
                             </NavLink>
                         </li>
                         <li className="nav-item">
@@ -107,16 +112,16 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
+                    <Link to="/front" className="navbar-brand">
                         <img
-                            src="https://static.vecteezy.com/system/resources/previews/009/362/747/original/simple-medical-icon-symbol-sign-design-free-png.png"
+                            src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/create_with_plus_mail_layer-512.png"
                             alt="Logo"
                             width="30"
                             height="24"
                             className="d-inline-block align-text-top mx-2"
                         />
                         MEDCare
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"

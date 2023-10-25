@@ -28,6 +28,7 @@ export default function DocSchedule() {
     return (
         <div className="row">
             <NavBar isAuthenticated={true} userRole={"doctor"} patientId={id}/>
+            <div className="background-image3"></div>
             <div className="container">
                 <div className="py-4">
                     <table className="table border shadow">
