@@ -92,7 +92,7 @@ const DoctorScheduleForm = () => {
     };
 
     return (
-        <div className="row">
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
             <NavBar isAuthenticated={true} userRole={"doctor"} patientId={doctorId}/>
             <div className="background-image3"></div>
             <div className="row mt-lg-5">

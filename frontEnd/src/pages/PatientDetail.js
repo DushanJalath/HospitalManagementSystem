@@ -37,7 +37,7 @@ export default function PatientDetail() {
     }
 
     return (
-        <div className="row">
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
             <NavBar isAuthenticated={true} userRole={"admin"}/>
             <div className="background-image4"></div>
             <div className="container">

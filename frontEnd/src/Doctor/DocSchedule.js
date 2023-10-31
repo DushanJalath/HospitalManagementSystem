@@ -26,7 +26,7 @@ export default function DocSchedule() {
     }
 
     return (
-        <div className="row">
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
             <NavBar isAuthenticated={true} userRole={"doctor"} patientId={id}/>
             <div className="background-image3"></div>
             <div className="container">

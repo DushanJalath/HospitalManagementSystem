@@ -99,7 +99,7 @@ export default function AppointmentDetails() {
     };
 
     return (
-        <div className="row">
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
             <NavBar isAuthenticated={true} userRole={""} />
             <div className="background-image2"></div>
             <div className="py-4">

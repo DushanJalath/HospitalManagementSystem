@@ -43,11 +43,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Makes the container full-height */
   text-align: center;
   font-size: 5rem;
   font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-  background-color: rgba(0, 0, 0, 0.13);
+  position: relative;
+  right: 5em;
+  top: 2.5em;
 }
 
 .image-container {
@@ -107,19 +108,19 @@
 }
 
 .background-image {
-  background-image: url('https://img.freepik.com/free-photo/nurse-doctor-checking-patient_23-2148973470.jpg?w=1380&t=st=1698215073~exp=1698215673~hmac=4f05ce386967a58774517acce90254100e41a47cea77d4ded4b6c9fffa2019ec');
+  background-image: url('https://millenniumphysician.com/wp-content/uploads/slider/cache/8ae6efedb92c5af5b251bdcad8477469/find_doctor_slide3.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   position: absolute;
-  opacity: 0.5; /* Adjust the opacity as needed (0.5 means 50% opacity) */
+  opacity: 0.9; /* Adjust the opacity as needed (0.5 means 50% opacity) */
   z-index: -1;
 }
 
 .background-image2 {
-  background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7957.jpg?w=1380&t=st=1698234921~exp=1698235521~hmac=1d16c6c7e48b793547e5053d4b6768611c656ec6c8d2ded7b848bf116b4748e6');
+  background-image: url('https://static.vecteezy.com/system/resources/previews/002/783/360/large_2x/blur-hospital-background-free-photo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -131,7 +132,7 @@
 }
 
 .background-image3 {
-  background-image: url('https://img.freepik.com/free-photo/doctor-with-stethoscope-hands-hospital-background_1423-1.jpg?w=1380&t=st=1698235269~exp=1698235869~hmac=a9a1715b764be07bcb2823a8d09bd3dc72f7fd5e10751349cc0995b590fda294');
+  background-image: url('https://www.bahrain-confidential.com/wp-content/uploads/2017/11/Gulf-Medical-Expo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -143,7 +144,7 @@
 }
 
 .background-image4 {
-  background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7972.jpg?w=1380&t=st=1698236022~exp=1698236622~hmac=4bfaeeb9cd3bfa0ae2a7883ecc18d17c76158d0565312fc932548f3e146b8079');
+  background-image: url('https://static.vecteezy.com/system/resources/previews/002/783/366/large_2x/blur-hospital-background-free-photo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

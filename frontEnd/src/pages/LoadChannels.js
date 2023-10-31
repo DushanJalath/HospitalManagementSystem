@@ -18,7 +18,7 @@ export default function LoadChannels() {
     }
 
     return (
-        <div className="row">
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
             <NavBar isAuthenticated={true} userRole={"admin"}/>
             <div className="background-image2"></div>
             <div className="container">

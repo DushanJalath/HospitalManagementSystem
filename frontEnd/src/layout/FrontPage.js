@@ -15,19 +15,19 @@ const Home = () => {
     };
 
     return (
-        <div className="row">
-            <NavBar isAuthenticated={true} userRole={""} patientId={""}/>
+        <div className="row" style={{marginRight:0, marginLeft:0}}>
+            <NavBar isAuthenticated={true} userRole={"front"} patientId={""} style={{paddingRight:0}}/>
             <div className="background-image"></div>
-            <div className="welcome-container">
+            <div className="welcome-container" style={{paddingRight:0}}>
                 <div>
                     <h1 style={{
                         textAlign: 'center',
                         maxWidth: '600px',
-                        margin: '0 auto',
+                        marginBottom: '0.2em',
                         fontSize: '5rem',
                         fontWeight: 'bold'
                     }}>Welcome</h1>
-                    <p style={{textAlign: 'center', maxWidth: '600px', margin: '0 auto', fontSize: '1rem'}}>Welcome to
+                    <p style={{textAlign: 'center', maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem'}}>Welcome to
                         MEDCare, your trusted partner in healthcare. Our mission is to provide quality medical services
                         to our patients and a convenient platform for our doctors and staff. Whether you are a patient,
                         doctor, or an administrator, we have you covered. Explore our services and start your journey

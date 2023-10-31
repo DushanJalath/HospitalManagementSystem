@@ -9,6 +9,11 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                 return (
                     <>
                         <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/front">
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink className="nav-link" activeClassName="active" to="/">
                                 Log In
                             </NavLink>
@@ -38,6 +43,26 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                             <h1 className="navHeader" style={{ position: 'absolute', top: 0, right: '2em', marginTop: '0.5em', fontSize: '1.5rem', color: 'white' }}>PID: {patientId}</h1>
                         </div>
 
+                    </>
+                );
+            } else if (userRole === "front") {
+                return (
+                    <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/front">
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/aboutUs">
+                                About Us
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/contactUs">
+                                Contact Us
+                            </NavLink>
+                        </li>
                     </>
                 );
             }else if (userRole === "doctor") {
@@ -109,18 +134,24 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
     }
 
     return (
-        <div>
+        <div style={{paddingRight:0,paddingLeft:0}}>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Link to="/front" className="navbar-brand">
-                        <img
-                            src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/create_with_plus_mail_layer-512.png"
-                            alt="Logo"
-                            width="30"
-                            height="24"
-                            className="d-inline-block align-text-top mx-2"
-                        />
-                        MEDCare
+                        <div className="row align-items-center">
+                            <div className="col-auto" style={{paddingRight:0, paddingLeft:'1em'}}>
+                                <img
+                                    src="https://i.ibb.co/N3HHKpw/med2.png"
+                                    alt="Logo"
+                                    width="30"
+                                    height="30"
+                                    className="d-inline-block align-text-top"
+                                />
+                            </div>
+                            <div className="col">
+                                <h1 style={{fontSize:'1.5em', marginTop:'0.3em', fontWeight: 'bold'}}>MEDCare</h1>
+                            </div>
+                        </div>
                     </Link>
                     <button
                         className="navbar-toggler"
