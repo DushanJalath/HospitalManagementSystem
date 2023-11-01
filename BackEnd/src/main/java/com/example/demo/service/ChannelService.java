@@ -69,4 +69,34 @@ public class ChannelService {
         channelRepo.deleteById(id);
         return true;
     }
+
+    public List<ChannelDTO> getUnbilledChannels() {
+        List<Channel> unbilledChannels = channelRepo.findByIsBilled(false);
+
+        if (!unbilledChannels.isEmpty()) {
+            return modelMapper.map(unbilledChannels, new TypeToken<List<ChannelDTO>>() {
+            }.getType());
+        } else {
+            throw new UserNotFoundException("false");
+        }
+    }
+
+    public ChannelDTO markChannelAsBilled(String channelId) {
+        Optional<Channel> optionalChannel = channelRepo.findById(channelId);
+
+        if (optionalChannel.isPresent()) {
+            Channel channel = optionalChannel.get();
+            channel.setBilled(true);
+            channelRepo.save(channel);
+
+            return modelMapper.map(channel, ChannelDTO.class);
+        } else {
+            // Handle the case where the channel with the given ID is not found
+            // You can throw an exception or return null, depending on your requirement.
+            // throw new ChannelNotFoundException(channelId); // You can create a custom exception class for this
+            return null;
+        }
+    }
+
+
 }

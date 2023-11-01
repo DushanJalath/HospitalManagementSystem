@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ChannelRepo extends JpaRepository<Channel, String> {
     List<Channel> findByDoctorId(String doctorId);
+    List<Channel> findByIsBilled(boolean isBilled);
 }

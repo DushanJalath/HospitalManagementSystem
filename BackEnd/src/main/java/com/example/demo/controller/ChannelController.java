@@ -21,6 +21,11 @@ public class ChannelController {
         return channelService.getAllChannels();
     }
 
+    @GetMapping("/getChannelsByBill")
+    public List<ChannelDTO> getChannelsByBill() {
+        return channelService.getUnbilledChannels();
+    }
+
     @GetMapping("/getChannel/{id}")
     public ChannelDTO getChannel(@PathVariable String id) {
         return channelService.getChannel(id);
@@ -29,6 +34,11 @@ public class ChannelController {
     @GetMapping("/getChannelByDoc/{id}")
     public List<ChannelDTO> getChannelByDoc(@PathVariable String id) {
         return channelService.getChannelByDoc(id);
+    }
+
+    @GetMapping("/markChannelAsBilled/{id}")
+    public ChannelDTO markChannelAsBilled(@PathVariable String id) {
+        return channelService.markChannelAsBilled(id);
     }
 
     public static String generateShortId() {

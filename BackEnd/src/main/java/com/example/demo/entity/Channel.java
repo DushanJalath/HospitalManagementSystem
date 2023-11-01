@@ -64,4 +64,24 @@ public class Channel {
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private Patient patient;
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private String date;
+
+    public boolean isBilled() {
+        return isBilled;
+    }
+
+    public void setBilled(boolean billed) {
+        isBilled = billed;
+    }
+
+    private boolean isBilled;
+
 }
