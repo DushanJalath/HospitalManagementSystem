@@ -29,14 +29,16 @@ import PDFGenerator from "./layout/PDFGenerator";
 import LoadChannels from "./pages/LoadChannels";
 import AboutUs from "./layout/AboutUs";
 import ContactUs from "./layout/ContactUs";
+import HFPrediction from "./layout/HFPrediction";
+import DashBoard from "./pages/DashBoard";
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path={"/"} element={<Home/>}/>
-                    <Route path={"/front"} element={<FrontPage/>}/>
+                    <Route path={"/log"} element={<Home/>}/>
+                    <Route path={"/"} element={<FrontPage/>}/>
                     <Route path={"/reg"} element={<Register/>}/>
                     <Route path={"/user"} element={<UserDetail/>}/>
                     <Route path={"/adduser"} element={
@@ -114,6 +116,9 @@ function App() {
                     <Route path={"/channels"} element={<LoadChannels/>}/>
                     <Route path={"/aboutUs"} element={<AboutUs/>}/>
                     <Route path={"/contactUs"} element={<ContactUs/>}/>
+                    <Route path={"/hfPrediction/:id"} element={<HFPrediction/>}/>
+                    <Route path={"/dierPrediction/:id"} element={<HFPrediction/>}/>
+                    <Route path={"/dashBoard"} element={<DashBoard/>}/>
                 </Routes>
             </Router>
         </div>

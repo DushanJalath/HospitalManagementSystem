@@ -7,7 +7,7 @@ import NavBar from "./NavBar";
 const Home = () => {
     const navigate = useNavigate();
     const navigateToLog = () => {
-        navigate('/'); // Navigate to the /patient route
+        navigate('/log'); // Navigate to the /patient route
     };
 
     const navigateToReg = () => {

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import NavBar from "../layout/NavBar";
+import Swal from "sweetalert2";
 
 
 export default function LoadChannels() {
@@ -13,8 +14,12 @@ export default function LoadChannels() {
     }, []);
 
     const loadDoctors = async () => {
-        const result = await axios.get("http://localhost:8080/api/v1/channel/getChannels");
-        setChannels(result.data);
+        try {
+            const result = await axios.get("http://localhost:8080/api/v1/channel/getChannelsByBill");
+            setChannels(result.data);
+        } catch (error) {
+            await Swal.fire("Error", "No record found.", "error");
+        }
     }
 
     return (

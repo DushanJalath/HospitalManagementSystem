@@ -60,12 +60,12 @@ function PDFGenerator() {
             showCancelButton: true,
             confirmButtonText: "Yes",
             cancelButtonText: "No",
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const doc = new jsPDF();
 
                 // Define the MEDCare logo URL
-                const medcareLogoUrl = "https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/create_with_plus_mail_layer-512.png"; // Replace with the actual logo URL
+                const medcareLogoUrl = "https://i.ibb.co/N3HHKpw/med2.png"; // Replace with the actual logo URL
 
                 // Logo positioning
                 const logoWidth = 10; // Adjust the logo width as needed
@@ -112,6 +112,10 @@ function PDFGenerator() {
                 doc.setFontSize(17);
                 doc.text(`Total: ${total.toFixed(2)}`, 20, textYPosition + 117);
                 doc.save("report.pdf");
+
+                const result = await axios.get(`http://localhost:8080/api/v1/channel/markChannelAsBilled/${channelId}`);
+
+                navigate("/channels");
             }
         });
     };

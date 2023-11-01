@@ -9,12 +9,12 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                 return (
                     <>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/front">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
                                 Home
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeClassName="active" to="/">
+                            <NavLink className="nav-link" activeClassName="active" to="/log">
                                 Log In
                             </NavLink>
                         </li>
@@ -29,8 +29,18 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                 return (
                     <>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/appo">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/appo/${patientId}`}>
                                 Appointment
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/hfPrediction/${patientId}`}>
+                                Heart Failure Prediction
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/dierPrediction/${patientId}`}>
+                                Diabetic Prediction
                             </NavLink>
                         </li>
                         <li className="nav-item">
@@ -49,7 +59,7 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                 return (
                     <>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/front">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
                                 Home
                             </NavLink>
                         </li>
@@ -92,6 +102,11 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
             } else if (userRole === "admin") {
                 return (
                     <>
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/dashBoard">
+                                DashBoard
+                            </NavLink>
+                        </li>
                         <li className="nav-item">
                             <NavLink className="nav-link ul-auto" activeClassName="active" to="/patient">
                                 PatientDetails

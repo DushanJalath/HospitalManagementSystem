@@ -25,7 +25,7 @@ export default function UserLogin() {
                 if (response.data) {
                     // Handle successful login
                     Swal.fire("Success!", "Logged in successfully!", "success");
-                    navigate(`/patient`);
+                    navigate(`/dashBoard`);
                 } else {
                     Swal.fire("Error!", "Invalid email or password", "error");
                 }

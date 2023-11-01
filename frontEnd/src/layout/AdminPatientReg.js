@@ -41,7 +41,8 @@ export default function AdminPatientReg() {
                             title: 'Saved!',
                             text: 'Patient saved successfully!',
                             icon: 'success',
-                            html: `Patient's Password: ${response.data.password}`
+                            html: `Patient's Password: ${response.data.password}
+                            Patient's ID: ${response.data.id}`
                         });
                         navigate("/")
 
