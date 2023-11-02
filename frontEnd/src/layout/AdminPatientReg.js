@@ -9,11 +9,12 @@ export default function AdminPatientReg() {
     const [patient, setPatient] = useState({
         name: "",
         contact: "",
+        email: "",
         gardienName: "",
         gardienContact: "",
     });
 
-    const {name, contact, gardienName, gardienContact} = patient;
+    const {name, contact,email, gardienName, gardienContact} = patient;
 
     const onInputChange = (e) => {
         setPatient({...patient, [e.target.name]: e.target.value});
@@ -44,7 +45,7 @@ export default function AdminPatientReg() {
                             html: `Patient's Password: ${response.data.password}
                             Patient's ID: ${response.data.id}`
                         });
-                        navigate("/")
+                        navigate("/dashBoard")
 
                     } else {
                         await Swal.fire('Error!', 'Failed to save patient.', 'error');
@@ -90,6 +91,19 @@ export default function AdminPatientReg() {
                             />
                         </div>
                         <div className="mb-3">
+                            <label htmlFor="Email" className="form-label">
+                                Email
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="Enter your e-mail"
+                                name="email"
+                                value={email}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
                             <label htmlFor="Guardian Name" className="form-label">
                                 Guardian Name
                             </label>
@@ -118,7 +132,7 @@ export default function AdminPatientReg() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/patient">
+                        <Link className="btn btn-outline-danger mx-2" to="/dashBoard">
                             Cancel
                         </Link>
                     </form>

@@ -45,7 +45,9 @@ export default function AdminDoctorReg() {
                             html: `Doctor's Password: ${response.data.password}
                             Doctor's ID: ${response.data.id}`
 
+
                         });
+                        navigate('/dashBoard');
 
                     } else {
                         Swal.fire('Error!', 'Failed to save patient.', 'error');
@@ -131,7 +133,7 @@ export default function AdminDoctorReg() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/doctorDetails">
+                        <Link className="btn btn-outline-danger mx-2" to="/dashBoard">
                             Cancel
                         </Link>
                     </form>
