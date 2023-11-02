@@ -42,7 +42,7 @@ export default function AdminDoctorReg() {
                             title: 'Saved!',
                             text: 'Patient saved successfully!',
                             icon: 'success',
-                            html: `Doctor's Password: ${response.data.password} 
+                            html: `Doctor's Password: ${response.data.password}
                             Doctor's ID: ${response.data.id}`
 
                         });

@@ -42,15 +42,16 @@ export default function DoctorAdd() {
                             title: 'Saved!',
                             text: 'Patient saved successfully!',
                             icon: 'success',
-                            html: `Patient's Password: ${response.data.password}`
+                            html: `Doctor's Password: ${response.data.password}
+                            Doctor's ID: ${response.data.doctor_id}`
                         });
                         navigate("/");
 
                     } else {
-                        Swal.fire('Error!', 'Failed to save patient.', 'error');
+                        await Swal.fire('Error!', 'Failed to save patient.', 'error');
                     }
                 } catch (error) {
-                    Swal.fire('Error!', 'An error occurred while saving the patient.', 'error');
+                    await Swal.fire('Error!', 'An error occurred while saving the patient.', 'error');
                 }
             }
         });
