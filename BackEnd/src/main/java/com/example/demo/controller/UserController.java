@@ -21,6 +21,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/getUserCount")
+    public long getUserCount() {
+        return userService.countUsers();
+    }
+
     @GetMapping("/getUser/{id}")
     public UserDTO getUser(@PathVariable String id) {
         return userService.getUser(id);

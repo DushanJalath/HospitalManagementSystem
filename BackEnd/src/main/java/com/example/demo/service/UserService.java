@@ -76,4 +76,8 @@ public class UserService {
         }
     }
 
+    public Long countUsers() {
+        return userRepo.count();
+    }
+
 }
