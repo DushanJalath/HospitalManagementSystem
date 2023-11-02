@@ -21,8 +21,9 @@ export default function DoctorLogin() {
         e.preventDefault();
         axios
             .post("http://localhost:8080/api/v1/doctor/dlogin", doctorCredentials)
-            .then((response) => {
+            .then(async (response) => {
                 if (response.data) {
+
                     // Handle successful login
                     Swal.fire("Success!", "Logged in successfully!", "success");
 
@@ -33,6 +34,7 @@ export default function DoctorLogin() {
                 } else {
                     Swal.fire("Error!", "Invalid email or password", "error");
                 }
+
             })
             .catch((error) => {
                 if (error.response) {

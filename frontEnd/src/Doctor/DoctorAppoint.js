@@ -18,6 +18,7 @@ export default function DoctorAppoint() {
     const loadDoctors = async () => {
         const result = await axios.get("http://localhost:8080/api/v1/doctor/getDoctors");
         setDoctors(result.data);
+
     }
 
     return (
