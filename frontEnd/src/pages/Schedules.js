@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 import NavBar from "../layout/NavBar";
+import Swal from "sweetalert2";
 
 
 export default function Schedules() {
@@ -16,8 +17,19 @@ export default function Schedules() {
     }, []);
 
     const loadSchedule = async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/channel/getChannelByDoc/${id}`);
-        setSchedule(result.data);
+        try {
+            const result = await axios.get(`http://localhost:8080/api/v1/channel/getChannelByDoc/${id}`);
+            setSchedule(result.data);
+
+            if (result.data.length === 0) {
+                // If no records are fetched, show a SweetAlert error message
+                await Swal.fire("No Appointments", "No appointments are available for this doctor.", "error");
+            }
+        } catch (error) {
+            console.error("An error occurred while fetching data:", error);
+            // Handle other errors as needed
+            await Swal.fire("No Appointments", "No appointments are available for this doctor.", "error");
+        }
     }
 
     const deleteDoctor = async (id) => {
