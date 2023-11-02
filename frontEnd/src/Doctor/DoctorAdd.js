@@ -43,7 +43,7 @@ export default function DoctorAdd() {
                             text: 'Patient saved successfully!',
                             icon: 'success',
                             html: `Doctor's Password: ${response.data.password}
-                            Doctor's ID: ${response.data.doctor_id}`
+                            Doctor's ID: ${response.data.id}`
                         });
                         navigate("/");
 
