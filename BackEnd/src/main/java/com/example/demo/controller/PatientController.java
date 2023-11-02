@@ -22,6 +22,11 @@ public class PatientController {
         return patientService.getAllPatients();
     }
 
+    @GetMapping("/getPatientsCount")
+    public long getPatientsCount() {
+        return patientService.countPatients();
+    }
+
     @GetMapping("/getPatient/{id}")
     public PatientDTO getPatient(@PathVariable String id) {
         return patientService.getPatient(id);
@@ -58,7 +63,7 @@ public class PatientController {
 
     @PostMapping("/plogin")
     public PatientDTO loginPatient(@RequestBody PatientDTO loginRequest) {
-        String id = loginRequest.getId();
+        String id = loginRequest.getEmail();
         String password = loginRequest.getPassword();
         System.out.println(id);
 

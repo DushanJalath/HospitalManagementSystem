@@ -59,22 +59,26 @@ public class PatientService {
         return true;
     }
 
-    public PatientDTO authenticatePatient(String id, String password) {
+    public PatientDTO authenticatePatient(String email, String password) {
         // Find a doctor by email
-        Optional<Patient> patient = patientRepo.findById(id);
+        Optional<Patient> patient = patientRepo.findByEmail(email);
         PatientDTO patientDTO = null;
         if (patient.isPresent()) {
             patientDTO = modelMapper.map(patient.get(), PatientDTO.class);
             System.out.println(patientDTO.getPassword());
         }else {
-            throw new UserNotFoundException(id);
+            throw new UserNotFoundException(email);
         }
 
         if (password.equals(patientDTO.getPassword())) {
             return patientDTO;
         } else {
-            throw new UserNotFoundException(id);
+            throw new UserNotFoundException(email);
         }
+    }
+
+    public Long countPatients() {
+        return patientRepo.count();
     }
 }
 

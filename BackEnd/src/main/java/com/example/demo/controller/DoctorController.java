@@ -21,6 +21,11 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
+    @GetMapping("/getDoctorCount")
+    public long getDoctorCount() {
+        return doctorService.countDoctors();
+    }
+
     @GetMapping("/getDoctor/{id}")
     public DoctorDTO getDoctor(@PathVariable String id) {
         return doctorService.getDoctor(id);
@@ -58,11 +63,10 @@ public class DoctorController {
 
     @PostMapping("/dlogin")
     public DoctorDTO loginDoctor(@RequestBody DoctorDTO loginRequest) {
-        String id = loginRequest.getId();
+        String email = loginRequest.getEmail();
         String password = loginRequest.getPassword();
-        System.out.println(id);
 
-        DoctorDTO authenticatedDoctor = doctorService.authenticateDoctor(id, password);
+        DoctorDTO authenticatedDoctor = doctorService.authenticateDoctor(email, password);
 
         if (authenticatedDoctor != null) {
             return authenticatedDoctor;

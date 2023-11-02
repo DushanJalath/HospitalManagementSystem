@@ -60,7 +60,7 @@ public class DoctorService {
 
     public DoctorDTO authenticateDoctor(String id, String password) {
         // Find a doctor by email
-        Optional<Doctor> doctor = doctorRepo.findById(id);
+        Optional<Doctor> doctor = doctorRepo.findByEmail(id);
         DoctorDTO doctorDTO = null;
         if (doctor.isPresent()) {
             doctorDTO = modelMapper.map(doctor.get(), DoctorDTO.class);
@@ -74,6 +74,10 @@ public class DoctorService {
         } else {
             throw new UserNotFoundException(id);
         }
+    }
+
+    public Long countDoctors() {
+        return doctorRepo.count();
     }
 
 }
