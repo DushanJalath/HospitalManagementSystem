@@ -8,11 +8,11 @@ export default function PatientLogin() {
     let navigate = useNavigate();
 
     const [patientCredentials, setDoctorCredentials] = useState({
-        id: "",
+        email: "",
         password: "",
     });
 
-    const { id, password } = patientCredentials;
+    const { email, password } = patientCredentials;
 
     const onInputChange = (e) => {
         setDoctorCredentials({ ...patientCredentials, [e.target.name]: e.target.value });
@@ -59,15 +59,15 @@ export default function PatientLogin() {
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
-                            <label htmlFor="ID" className="form-label">
-                                Patient ID
+                            <label htmlFor="Email" className="form-label">
+                                Patient Email
                             </label>
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Enter your ID"
-                                name="id"
-                                value={id}
+                                placeholder="Enter your Email"
+                                name="email"
+                                value={email}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>

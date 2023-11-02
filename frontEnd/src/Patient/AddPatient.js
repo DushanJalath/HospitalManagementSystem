@@ -9,11 +9,12 @@ export default function AddPatient() {
     const [patient, setPatient] = useState({
         name: "",
         contact: "",
+        email: "",
         gardienName: "",
         gardienContact: "",
     });
 
-    const {name, contact, gardienName, gardienContact} = patient;
+    const {name, contact,email, gardienName, gardienContact} = patient;
 
     const onInputChange = (e) => {
         setPatient({...patient, [e.target.name]: e.target.value});
@@ -86,6 +87,19 @@ export default function AddPatient() {
                                 placeholder="Enter your contact"
                                 name="contact"
                                 value={contact}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="Email" className="form-label">
+                                Email
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="Enter your contact"
+                                name="email"
+                                value={email}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>

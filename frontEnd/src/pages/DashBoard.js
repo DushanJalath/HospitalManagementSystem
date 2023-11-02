@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../layout/NavBar";
@@ -14,16 +14,45 @@ import {
     CartesianGrid,
     Bar,
 } from "recharts";
+import axios from "axios";
 
 const DashBoard = () => {
+    const [patientCount, setPatientCount] = useState([]);
+    const [doctorCount, setDoctorCount] = useState([]);
+    const [channelList, setChannelList] = useState([]);
+
+    useEffect(() => {
+        loadPCount();
+        loadDCount();
+        loadCCount();
+
+    }, []);
+
+    const loadPCount = async () => {
+        const result = await axios.get("http://localhost:8080/api/v1/patient/getPatientsCount");
+        setPatientCount(result.data);
+    }
+
+    const loadDCount = async () => {
+        const result = await axios.get("http://localhost:8080/api/v1/doctor/getDoctorCount");
+        setDoctorCount(result.data);
+    }
+
+    const loadCCount = async () => {
+        const result = await axios.get("http://localhost:8080/api/v1/channel/getChannels");
+        setChannelList(result.data);
+    }
+
+
+
     const data = [
         { name: "MON", WeekDay: 20 },
         { name: "TUE", WeekDay: 50 },
         { name: "WED", WeekDay: 10 },
-        { name: "THU", WeekDay: 50 },
+        { name: "THU", WeekDay: 40 },
         { name: "FRI", WeekDay: 50 },
-        { name: "SAT", WeekDay: 50 },
-        { name: "SUN", WeekDay: 50 },
+        { name: "SAT", WeekDay: 32 },
+        { name: "SUN", WeekDay: 17 },
     ];
 
     return (
@@ -34,7 +63,7 @@ const DashBoard = () => {
                     <div className="custom-div mb-3 shadow" style={{ border: '2px solid #2DB3B9', borderRadius: 20 }}>
                         <div className="d-flex">
                             <div className="col-md-6">
-                                <h1 style={{fontSize:'5em', marginTop: 8,  }}>34</h1>
+                                <h1 style={{fontSize:'5em', marginTop: 8,  }}>{patientCount < 10 ? `0${patientCount}` : patientCount}</h1>
                                 <h1 style={{fontWeight: "bold",fontSize:'2em'}}>Patients</h1>
                             </div>
                             <div className="col-md-6" style={{marginTop: 19 }}>
@@ -51,7 +80,7 @@ const DashBoard = () => {
                     <div className="custom-div mb-3 shadow" style={{ border: '2px solid #2DB3B9', borderRadius: 20 }}>
                         <div className="d-flex">
                             <div className="col-md-6">
-                                <h1 style={{fontSize:'5em', marginTop: 8,  }}>16</h1>
+                                <h1 style={{fontSize:'5em', marginTop: 8,  }}>{doctorCount < 10 ? `0${doctorCount}` : doctorCount}</h1>
                                 <h1 style={{fontWeight: "bold",fontSize:'2em'}}>Doctors</h1>
                             </div>
                             <div className="col-md-6" style={{marginTop: 19 }}>
