@@ -31,16 +31,22 @@ import AboutUs from "./layout/AboutUs";
 import ContactUs from "./layout/ContactUs";
 import HFPrediction from "./layout/HFPrediction";
 import DashBoard from "./pages/DashBoard";
+import Services from "./layout/Services";
+import News from "./layout/News";
+import DoctorPage from "./layout/DoctorPage";
 
 function App() {
     return (
-        <div className="App">
+
+
             <Router>
                 <Routes>
+
                     <Route path={"/log"} element={<Home/>}/>
                     <Route path={"/"} element={<FrontPage/>}/>
                     <Route path={"/reg"} element={<Register/>}/>
                     <Route path={"/user"} element={<UserDetail/>}/>
+
                     <Route path={"/adduser"} element={
                         <div className="row" style={{marginRight:0, marginLeft:0}}>
                             <div className="col-md-6">
@@ -92,14 +98,14 @@ function App() {
                         <div className="row" style={{marginRight:0, marginLeft:0}}>
                             <NavBar isAuthenticated={true} userRole={""}/>
                             <div className="background-image"></div>
-                                <DoctorLogin/>
+                            <DoctorLogin/>
                         </div>
                     }/>
                     <Route path={"/ulog"} element={
                         <div className="row" style={{marginRight:0, marginLeft:0}}>
                             <NavBar isAuthenticated={true} userRole={""}/>
                             <div className="background-image"></div>
-                                <UserLogin/>
+                            <UserLogin/>
                         </div>
                     }/>
                     <Route path={`/addScedule/:doctorId`} element={<SetSchedule/>}/>
@@ -119,9 +125,12 @@ function App() {
                     <Route path={"/hfPrediction/:id"} element={<HFPrediction/>}/>
                     <Route path={"/dierPrediction/:id"} element={<HFPrediction/>}/>
                     <Route path={"/dashBoard"} element={<DashBoard/>}/>
+                    <Route path={"/services"} element={<Services/>}/>
+                    <Route path={"/news"} element={<News/>}/>
+                    <Route path={"/doctorPage"} element={<DoctorPage/>}/>
                 </Routes>
             </Router>
-        </div>
+
     );
 }
 

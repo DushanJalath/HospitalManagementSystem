@@ -1,13 +1,17 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import '../App.css';
+import call from './images/phne.png';
+import time from './images/time.png';
 
 export default function NavBar({ isAuthenticated, userRole, patientId }) {
     const getNavLinks = () => {
         if (isAuthenticated) {
             if (userRole === "home") {
                 return (
+
                     <>
+
                         <li className="nav-item">
                             <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
                                 Home
@@ -59,7 +63,7 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                 return (
                     <>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/" >
                                 Home
                             </NavLink>
                         </li>
@@ -73,7 +77,40 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                                 Contact Us
                             </NavLink>
                         </li>
+
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/services">
+                                Services
+                            </NavLink>
+                        </li>
+
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/doctorPage">
+                                Doctors
+                            </NavLink>
+                        </li>
+
+                        <li className="nav-item">
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to="/news">
+                                MedCareCancer Center
+                            </NavLink>
+                        </li>
+
+
+                        <img src={call} style={{ position:"absolute",top:17, left:960 }}/>
+                        <span className="nav-link ul-auto" style={{ position: "absolute", top: 0.2, left: 1000, color:'#A0E9FF', fontWeight:'bold'}}>Emergency</span>
+                        <span className="nav-link ul-auto" style={{ position: "absolute", top: 22, left: 1000, color:'#A0E9FF', fontWeight:'bold'}}>0115 577 111</span>
+
+
+                        <img src={time} style={{ position:"absolute",top:17, left:1200 }}/>
+                        <span className="nav-link ul-auto" style={{ position: "absolute", top: 0.2, left: 1240, color:'#A0E9FF', fontWeight:'bold'}}>Working Hours</span>
+                        <span className="nav-link ul-auto" style={{ position: "absolute", top: 22, left: 1240, color:'#A0E9FF', fontWeight:'bold'}}>24 Hours Everyday</span>
+
                     </>
+
+
+
+
                 );
             }else if (userRole === "doctor") {
                 return (

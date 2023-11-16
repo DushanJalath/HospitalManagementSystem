@@ -85,6 +85,7 @@
   width: 1em; /* Set the width to 1em to match the font size */
   height: 1em; /* Set the height to 1em to match the font size */
   vertical-align: middle; /* Align the image vertically in the middle */
+
 }
 
 .welcome-button {
@@ -162,8 +163,310 @@
   opacity: 1; /* Full opacity for text and buttons */
 }
 
+.navbar {
+  height: 70px; /* You can adjust this value as per your needs */
+}
+.navbar img {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+}
+
+.nav-item{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
+
+.footer-container {
+  background-color: #3876BF;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+  bottom: -100px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Adjust h2, p or any other tags inside the footer if needed */
+.footer-container h2 {
+  margin-top: 0;
+}
+
+.carousel-container {
+  margin-top: 200px;
+  color: #61dafb;
+
+}
+
+
+
+/* Assuming you're using the App.css file to store styles */
+
+/* Mobile-first styles */
+.welcome-container h1,
+.welcome-container p {
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.front-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .welcome-container h1,
+  .welcome-container p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .front-button-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+/* Desktop and larger */
+@media (min-width: 992px) {
+  .welcome-container h1,
+  .welcome-container p {
+    max-width: 600px;
+  }
+}
+
+
+
+.buttonStyle {
+  fontWeight: 'bold';
+  width: 470px;
+  height: 40px;
+  color: white;
+  border-radius: 20px;
+  background: navy;
+  border: none;
+  borderColor: '#3876BF';
+  transition: background-color 0.3s ease;
+
+}
+
+.buttonStyle:hover {
+  background-color: mediumslateblue;
+}
+
+
+
+
+.hospital-stats-container {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  background-color: #0C356A;
+  padding: 20px 0 10px 0;
+  margin-top: 130px;
+
+}
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin-top: 40px;
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.stat-number {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: aliceblue;
+}
+
+.stat-text {
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+
+
+.department-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px; /* Adjust as needed */
+  padding: 1em;
+  background-color: lightskyblue; /* or any preferred color */
+  margin: 0.5em;
+  border-radius: 20px;
+
+}
+
+.department-card h3 {
+  margin-top: 0.5em;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.departments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px; /* Adjust for spacing between items */
+}
+
+
+.department-card {
+  flex: 1 0 calc(16.666% - 20px); /* for 6 items per row, adjust the percentage accordingly. Subtracting gap for spacing */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+
+/*About us*/
+.about-us {
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.about-us h1 {
+  color: darkblue;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.about-us img {
+  width: 50%;
+  max-width: 500px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.about-us p {
+  font-size: 16px;
+  line-height: 1.5;
+
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.about-us-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* space between columns */
+}
+
+/*.about-us-column {*/
+/*    flex: 1; !* each column will take equal width *!*/
+/*    min-width: 300px; !* minimum width before wrapping to next line *!*/
+/*}*/
+
+.about-us {
+  text-align: center;
+  margin: auto;
+  padding: 2rem;
+  background: #f5f5f5;
+}
+
+.about-us h1 {
+  color: #123456;
+  margin-bottom: 1.5rem;
+}
+
+.about-us img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.about-us-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.about-us-column {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+  margin: 1rem;
+  flex: 1;
+}
+
+.about-us-column h2 {
+  color: #123456;
+  margin-top: 1.5rem;
+}
+
+.about-us-column p {
+  text-align: justify;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Existing styles... */
+
+.mission-vision-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adds space between the mission and vision boxes */
+}
+
+.mission-vision-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.about-us-images {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem; /* This adds space between the images */
+  padding: 1rem 0;
+}
+
+.about-us-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  /* Existing responsive styles... */
+
+  .mission-vision-container {
+    width: 100%;
+  }
+}
+
