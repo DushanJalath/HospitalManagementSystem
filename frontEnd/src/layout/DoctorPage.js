@@ -20,21 +20,21 @@ import doc14 from './images/d14.png';
 const doctors = [
     {
         id: 1,
-        name: 'Dr. Ajay Singh',
+        name: 'Dr. B.N. LALITHA MUNASINGHE',
         specialization: 'Consultant Neurosurgeon',
         description: 'Dr. Ajay Singh is a seasoned Consultant Neurosurgeon with a remarkable five-plus years of experience.',
         image: doc1,
     },
     {
         id: 2,
-        name: 'Dr. Harmanpreet Kaur',
+        name: 'Dr. M.D.R.KUMARA',
         specialization: 'Obstetrics & Gynecology',
         description: 'Dr. Harmanpreet Kaur is a Senior Consultant Obstetrician, Gynecologist & Laparoscopic surgeon at Healing Hospital, Chandigarh.',
         image: doc2,
     },
     {
         id: 3,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. S.A.KOHOMBANGE',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc12,
@@ -42,7 +42,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. W.D.ARIYADASA',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc9,
@@ -50,7 +50,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. SHIRANI JAYASINGHE',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc11,
@@ -58,7 +58,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. D.WIJEWARDANA',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc10,
@@ -66,7 +66,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. V.M.C.PERERA',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc8,
@@ -74,7 +74,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. M.A.P.TISSERA',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc5,
@@ -82,7 +82,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. W.W.FERNANDO',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc3,
@@ -90,7 +90,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. W.R.NANAYAKKARA',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc7,
@@ -98,7 +98,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. R.D.DE.S.GINIGE',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc14,
@@ -106,7 +106,7 @@ const doctors = [
 
     {
         id: 4,
-        name: 'Dr. J.P Singhvi',
+        name: 'Dr. D.K.D.MATHEW',
         specialization: 'Neuromedicine Specialist',
         description: 'Dr. J. P. Singhvi, MBBS, MD (Medicine), DM (Neurology), is working as a Sr. Consultant-Neurology at Healing Hospital, Chandigarh.',
         image: doc6,

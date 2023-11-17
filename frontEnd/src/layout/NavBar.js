@@ -43,7 +43,7 @@ export default function NavBar({ isAuthenticated, userRole, patientId }) {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/dierPrediction/${patientId}`}>
+                            <NavLink className="nav-link ul-auto" activeClassName="active" to={`/diabetic/${patientId}`}>
                                 Diabetic Prediction
                             </NavLink>
                         </li>

@@ -34,6 +34,7 @@ import DashBoard from "./pages/DashBoard";
 import Services from "./layout/Services";
 import News from "./layout/News";
 import DoctorPage from "./layout/DoctorPage";
+import DiabeticPrediction from "./layout/DiabeticPrediction";
 
 function App() {
     return (
@@ -128,6 +129,7 @@ function App() {
                     <Route path={"/services"} element={<Services/>}/>
                     <Route path={"/news"} element={<News/>}/>
                     <Route path={"/doctorPage"} element={<DoctorPage/>}/>
+                    <Route path={"/diabetic/:id"} element={<DiabeticPrediction/>}/>
                 </Routes>
             </Router>
 

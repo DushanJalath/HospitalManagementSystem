@@ -9,18 +9,29 @@ const HFPrediction = () => {
     const {id}=useParams();
 
     const [doctor, setDoctor] = useState({
+        bmi: "",
+        smoking: "",
+        alcoholDrinking: "",
+        stroke: "",
+        physicalHealth: "",
+        mentalHealth: "",
+        difficultyWalking: "",
         sex: "",
-        ecg: "",
-        chest: "",
-        agina: "",
-        slop: "",
         age: "",
-        bloodPressure: "",
-        cholesterol: "",
-        bloodSugar: ""
+        diabetic: "",
+        physicalActivity: "",
+        generalHealth: "",
+        sleepTime: "",
+        asthma: "",
+        kidneyDisease: "",
+        skinCancer: ""
+
+
     });
 
-    const {sex, ecg, chest, agina,slop,age,bloodPressure,cholesterol,bloodSugar} = doctor;
+    const {bmi, smoking, alcoholDrinking, stroke,physicalHealth,
+        mentalHealth,difficultyWalking,sex,age, diabetic,
+        physicalActivity, generalHealth, sleepTime, asthma, kidneyDisease, skinCancer} = doctor;
 
     const onInputChange = (e) => {
         setDoctor({...doctor, [e.target.name]: e.target.value});
@@ -36,145 +47,325 @@ const HFPrediction = () => {
             <NavBar isAuthenticated={true} userRole={"patient"} patientId={id} style={{paddingRight:0}}/>
             <h1 style={{fontSize:'2em', marginTop:'0.5em', fontWeight: 'bold'}}>Patient Information</h1>
             <div className="container border rounded p-4 shadow" style={{marginTop:'3em', marginLeft:0}}>
+
+                {/*Row1*/}
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Doctorname" className="form-label">
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="bmi" className="form-label">
+                                BMI
+                            </label>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="Enter BMI"
+                                name="bmi"
+                                value={bmi}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="smoking" className="form-label">
+                                Smoking
+                            </label>
+                            <select
+                                className="form-select"
+                                name="smoking"
+                                value={smoking}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="alcoholDrinking" className="form-label">
+                                Alcohol Drinking
+                            </label>
+                            <select
+                                className="form-select"
+                                name="alcoholDrinking"
+                                value={alcoholDrinking}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="stroke" className="form-label">
+                                Stroke
+                            </label>
+                            <select
+                                className="form-select"
+                                name="stroke"
+                                value={stroke}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                {/*Row2*/}
+                <div className="row">
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="physicalHealth" className="form-label">
+                                Physical Health
+                            </label>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="Enter your age"
+                                name="physicalHealth"
+                                value={physicalHealth}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="mentalHealth" className="form-label">
+                                Mental Health
+                            </label>
+                            <input
+                                type={"number"}
+                                className="form-control"
+                                placeholder="Enter your age"
+                                name="mentalHealth"
+                                value={mentalHealth}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="difficultyWalking" className="form-label">
+                                Difficulty Walking
+                            </label>
+                            <select
+                                className="form-select"
+                                name="difficultyWalking"
+                                value={difficultyWalking}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="sex" className="form-label">
                                 Sex
                             </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Enter Sex"
+                            <select
                                 name="sex"
+                                className="form-select"
                                 value={sex}
                                 onChange={(e) => onInputChange(e)}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Contact" className="form-label">
-                                Resting ECG
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Enter ECG"
-                                name="ecg"
-                                value={ecg}
-                                onChange={(e) => onInputChange(e)}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Email" className="form-label">
-                                Chest Pain Type
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Enter Chest Pain Type"
-                                name="chest"
-                                value={chest}
-                                onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value=''></option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+                {/*Row3*/}
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Specialization" className="form-label">
-                                Exercise Angina
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="age" className="form-label">
+                               Age
                             </label>
                             <input
-                                type={"text"}
+                                type={"number"}
                                 className="form-control"
-                                placeholder="Enter Exercise Angina"
-                                name="agina"
-                                value={agina}
+                                placeholder="Enter your age"
+                                name="age"
+                                value={age}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Specialization" className="form-label">
-                                ST Slop
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="diabetic" className="form-label">
+                                Diabetic
                             </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Enter ST Slop"
-                                name="slop"
-                                value={slop}
+                            <select
+                                className="form-select"
+                                name="diabetic"
+                                value={diabetic}
                                 onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
-                    </div><div className="col-md-4">
-                    <div className="mb-5">
-                        <label htmlFor="Specialization" className="form-label">
-                            Age
-                        </label>
-                        <input
-                            type={"text"}
-                            className="form-control"
-                            placeholder="Enter Age"
-                            name="age"
-                            value={age}
-                            onChange={(e) => onInputChange(e)}
-                        />
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="physicalActivity" className="form-label">
+                                Physical Activity
+                            </label>
+                            <select
+                                name="physicalActivity"
+                                className="form-select"
+                                value={physicalActivity}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="generalHealth" className="form-label">
+                                General Health
+                            </label>
+                            <select
+                                name="generalHealth"
+                                className="form-select"
+                                value={generalHealth}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="excellent">Excellent</option>
+                                <option value="veryGood">Very Good</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">Poor</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                </div>
+
+
+
+
+
+                {/*Row4*/}
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Specialization" className="form-label">
-                                Resting Blood Pressure
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="sleepTime" className="form-label">
+                                Sleep Time
                             </label>
                             <input
-                                type={"text"}
+                                type={"number"}
                                 className="form-control"
-                                placeholder="Enter Resting Blood Pressure"
-                                name="bloodPressure"
-                                value={bloodPressure}
+                                placeholder="Sleeping hours of the day"
+                                name="sleepTime"
+                                value={sleepTime}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="mb-5">
-                            <label htmlFor="Specialization" className="form-label">
-                                Cholesterol
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="asthma" className="form-label">
+                                Asthma
                             </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Enter Cholesterol"
-                                name="cholesterol"
-                                value={cholesterol}
+                            <select
+                                className="form-select"
+                                name="asthma"
+                                value={asthma}
                                 onChange={(e) => onInputChange(e)}
-                            />
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
-                    </div><div className="col-md-4">
-                    <div className="mb-5">
-                        <label htmlFor="Specialization" className="form-label">
-                            Fasting Blood Sugar
-                        </label>
-                        <input
-                            type={"text"}
-                            className="form-control"
-                            placeholder="Enter Fasting Blood Sugar"
-                            name="bloodSugar"
-                            value={bloodSugar}
-                            onChange={(e) => onInputChange(e)}
-                        />
+                    </div>
+
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="kidneyDisease" className="form-label">
+                                Kidney Disease
+                            </label>
+                            <select
+                                name="kidneyDisease"
+                                className="form-select"
+                                value={kidneyDisease}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3">
+                        <div className="mb-4">
+                            <label htmlFor="skinCancer" className="form-label">
+                                Skin Cancer
+                            </label>
+                            <select
+                                name="skinCancer"
+                                className="form-select"
+                                value={skinCancer}
+                                onChange={(e) => onInputChange(e)}
+                            >
+                                <option value=''></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                </div>
+
+
+
+
+
                 <div className="row">
                     <div className="col-md-12">
                         <form onSubmit={(e) => onSubmit(e)}>
