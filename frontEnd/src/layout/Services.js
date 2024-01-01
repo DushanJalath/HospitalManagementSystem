@@ -8,6 +8,7 @@ import c3 from "./images/c3.png";
 import c4 from "./images/c4.png";
 import c5 from "./images/c5.png";
 import c6 from "./images/c6.png";
+import Footer from "./Footer";
 
 const Services = () => {
     return (
@@ -74,6 +75,8 @@ const Services = () => {
                     <Link to="/contactUs">contact us</Link>.
                 </p>
             </div>
+
+            <Footer />
         </div>
     );
 };

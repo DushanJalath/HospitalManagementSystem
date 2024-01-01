@@ -28,6 +28,7 @@
     "react-time-picker": "^6.5.1",
     "reactstrap": "^9.2.0",
     "recharts": "^2.9.2",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.7.27",
     "web-vitals": "^2.1.4"
   },

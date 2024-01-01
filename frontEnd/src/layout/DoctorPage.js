@@ -16,6 +16,7 @@ import doc10 from './images/d10.png';
 import doc11 from './images/d11.png';
 import doc12 from './images/d12.png';
 import doc14 from './images/d14.png';
+import Footer from "./Footer";
 
 const doctors = [
     {
@@ -141,6 +142,9 @@ const DoctorPage = () => {
             <div className={styles.doctorGrid}>
                 {doctorList}
             </div>
+
+
+            <Footer />
         </div>
 
 

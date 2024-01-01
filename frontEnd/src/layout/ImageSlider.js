@@ -18,7 +18,7 @@ function ImageSlider() {
         slidesToScroll: 1,
         arrows: true,
         autoplay: true, // Add this line
-        autoplaySpeed: 1000, // And this line (2 seconds per slide, adjust as needed)
+        autoplaySpeed: 1200, // And this line (2 seconds per slide, adjust as needed)
     };
 
 
