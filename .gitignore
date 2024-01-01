@@ -2,4 +2,4 @@
 */*-lock.json
 
 /.idea
-/Backend/target
+*/target
